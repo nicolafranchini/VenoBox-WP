@@ -1,0 +1,305 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: VenoBox Lightbox\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-19 11:10+0000\n"
+"PO-Revision-Date: 2023-11-19 10:55+0000\n"
+"Last-Translator: admin <info@veno.es>\n"
+"Language-Team: Italiano\n"
+"Language: it_IT\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.1; wp-5.3.2"
+
+#: include/class-venobox-plugin.php:321
+#| msgid "Add Lightbox for all linked images & galleries"
+msgid "Add VenoBox for all linked images & galleries"
+msgstr "Aggiungi Lightbox per tutti link collegati a immagini e alle gallerie"
+
+#: include/class-venobox-plugin.php:337
+msgid ""
+"Add VenoBox for all the links to YouTube, Vimeo, and .mp4, .webm, .ogg videos"
+msgstr ""
+"Aggiungi Lightbox per tutti link collegati a YouTube, Vimeo e .webm, .ogg "
+"video"
+
+#: include/class-venobox-plugin.php:504
+msgid ""
+"Allow continous navigation, jumping from last to first item and vice versa"
+msgstr ""
+"Consenti navigazione continua, saltando dall'ultimo elemento al primo e "
+"viceversa"
+
+#: include/class-venobox-plugin.php:379
+msgid "ALT text"
+msgstr "ALT text"
+
+#: include/class-venobox-plugin.php:455
+msgid "Aspect ratio"
+msgstr "Aspect ratio"
+
+#: include/class-venobox-plugin.php:451
+msgid "Aspect ratio for video and iFrame"
+msgstr "Aspect ratio per video e iFrame"
+
+#: include/class-venobox-plugin.php:422
+msgid "Autoplay"
+msgstr "Avvio Automatico"
+
+#: include/class-venobox-plugin.php:417
+msgid "Autoplay videos"
+msgstr "Riproduzione automatica video"
+
+#: include/class-venobox-plugin.php:758 include/class-venobox-plugin.php:806
+msgid "Bar"
+msgstr "Barra"
+
+#: include/class-venobox-plugin.php:896
+msgid "Beaver Builder"
+msgstr "Beaver Builder"
+
+#: include/class-venobox-plugin.php:762 include/class-venobox-plugin.php:810
+msgid "Block"
+msgstr "Blocco"
+
+#: include/class-venobox-plugin.php:738
+msgid "Bottom"
+msgstr "In fondo"
+
+#: include/class-venobox-plugin.php:387
+msgid "Caption"
+msgstr "Didascalia"
+
+#: include/class-venobox-plugin.php:891
+msgid "Disable Beaver Builder Lightbox"
+msgstr "Disabilita LightBox di Beaver Builder"
+
+#: include/class-venobox-plugin.php:541
+msgid "Disable keyboard"
+msgstr "Disabilita tastiera"
+
+#: include/class-venobox-plugin.php:536
+msgid "Disable keyboard navigation"
+msgstr "Disabilita navigazione da tastiera"
+
+#: include/class-venobox-plugin.php:525
+msgid "Disable Navigation"
+msgstr "Disabilita navigazione"
+
+#: include/class-venobox-plugin.php:520
+msgid "Disable Previous & Next Arrows"
+msgstr "Disabilita frecce Previous & Next"
+
+#: include/class-venobox-plugin.php:557
+msgid "Disable swipe"
+msgstr "Disabilita swipe"
+
+#: include/class-venobox-plugin.php:552
+msgid "Disable touch swipe navigation"
+msgstr "Disabilita navigazione al trascinamento"
+
+#: include/class-venobox-plugin.php:998
+msgid "Disable VenoBox"
+msgstr "Disabilita Venobox"
+
+#: include/class-venobox-plugin.php:788
+msgid "Enable share buttons"
+msgstr "Abilita pulsanti di condivisione"
+
+#: include/class-venobox-plugin.php:864
+msgid "FacetWP"
+msgstr "FacetWP"
+
+#. unique id of field.
+#: include/class-venobox-plugin.php:365
+msgid "Fit view"
+msgstr "Adatta in altezza"
+
+#: include/class-venobox-plugin.php:654
+msgid "Frame Border Color"
+msgstr "Colore bordo cornice"
+
+#: include/class-venobox-plugin.php:639
+msgid "Frame Border Thickness"
+msgstr "Spessore bordo cornice"
+
+#. declare the section id.
+#: include/class-venobox-plugin.php:464
+msgid "Galleries"
+msgstr "Gallerie"
+
+#: include/class-venobox-plugin.php:493
+msgid "Gallery Numeration"
+msgstr "Numerazione gallerie"
+
+#. declare the section id.
+#: include/class-venobox-plugin.php:312
+msgid "General Settings"
+msgstr "Impostazioni generali"
+
+#. URI of the plugin
+#| msgid "https://wordpress.org/plugins/venobox-lightbox/"
+msgid "https://wordpress.org/plugins/venobox/"
+msgstr "https://wordpress.org/plugins/venobox/"
+
+#. declare the section id.
+#: include/class-venobox-plugin.php:352
+msgid "Images"
+msgstr "Immagini"
+
+#: include/class-venobox-plugin.php:509
+msgid "Infinite Gallery"
+msgstr "Galleria infinita"
+
+#. declare the section id.
+#: include/class-venobox-plugin.php:834
+msgid "Integration"
+msgstr "Integrazione"
+
+#: include/class-venobox-plugin.php:399
+msgid "Item Title"
+msgstr "Titolo Elemento"
+
+#. unique id of field.
+#: include/class-venobox-plugin.php:326
+msgid "Link Images"
+msgstr "Link immagini"
+
+#: include/class-venobox-plugin.php:343
+msgid "Link videos"
+msgstr "Link video"
+
+#: include/class-venobox-plugin.php:624
+msgid "Max item width"
+msgstr "Larghezza massima"
+
+#: include/class-venobox-plugin.php:395
+msgid "Media attribute to be useed as title"
+msgstr "Attributo da utilizzare come titolo"
+
+#: include/class-venobox-plugin.php:594
+msgid "Navigation & Title Color"
+msgstr "Navigazione e Colore Titolo"
+
+#. Author of the plugin
+msgid "Nicola Franchini"
+msgstr "Nicola Franchini"
+
+#: include/class-venobox-plugin.php:391
+msgid "None"
+msgstr "Nessuno"
+
+#: include/class-venobox-plugin.php:579
+msgid "Overlay Color"
+msgstr "Colore Sovrapposizione"
+
+#: include/class-venobox-plugin.php:766 include/class-venobox-plugin.php:814
+msgid "Pill"
+msgstr "Pillola"
+
+#: include/class-venobox-plugin.php:721
+msgid "Preloader Type"
+msgstr "Tipo di Preloader"
+
+#: include/class-venobox-plugin.php:360
+msgid "Resize the images to fit within the viewport height"
+msgstr "Ridimensiona le immagini per adattarle all'alltezza della finestra"
+
+#: include/class-venobox-plugin.php:880
+msgid "Search & Filter Pro"
+msgstr "Search & Filter Pro"
+
+#: include/class-venobox-plugin.php:224
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: include/class-venobox-plugin.php:825
+msgid "Share style"
+msgstr "Stile condivisione"
+
+#: include/class-venobox-plugin.php:793
+msgid "Sharing"
+msgstr "Condivisione"
+
+#: include/class-venobox-plugin.php:488
+msgid "Show Pagination for Multiple Items"
+msgstr "Mostra paginazione per elemento multilpi"
+
+#. declare the section id.
+#: include/class-venobox-plugin.php:566
+msgid "Style"
+msgstr "Stile"
+
+#: include/class-venobox-plugin.php:859
+msgid "Support for FacetWP"
+msgstr "Supporto per FacetWP"
+
+#: include/class-venobox-plugin.php:875
+msgid "Support for Search & Filter Pro"
+msgstr "Supporto per Search & Filter Pro"
+
+#: include/class-venobox-plugin.php:843
+msgid "Support for WooCommerce"
+msgstr "Supporto per WooCommerce"
+
+#: include/class-venobox-plugin.php:383
+msgid "Title"
+msgstr "Titolo"
+
+#: include/class-venobox-plugin.php:609
+msgid "Title and share bar background"
+msgstr "Sfondo titolo e barra condivisione"
+
+#: include/class-venobox-plugin.php:745
+msgid "Title Position"
+msgstr "Posizione Titolo"
+
+#: include/class-venobox-plugin.php:777
+msgid "Title style"
+msgstr "Stile titolo"
+
+#: include/class-venobox-plugin.php:734
+msgid "Top"
+msgstr "In alto"
+
+#: include/class-venobox-plugin.php:477
+msgid "Transition speed (ms)"
+msgstr "Velocità transizione (ms)"
+
+#: include/class-venobox-plugin.php:770 include/class-venobox-plugin.php:818
+msgid "Transparent"
+msgstr "Trasparente"
+
+#. $page_title.
+#. Name of the plugin
+#: include/class-venobox-plugin.php:68 include/class-venobox-plugin.php:234
+msgid "VenoBox"
+msgstr "VenoBox"
+
+#. Description of the plugin
+msgid ""
+"VenoBox - modal window for Images, Videos, Inline contents, iFrames, Ajax "
+"requests. Touch swipe gallery."
+msgstr ""
+"VenoBox - modal window per immagini, video, Inline contents, iFrame, "
+"chiamate Ajax. Touch swipe gallery."
+
+#: include/class-venobox-plugin.php:285
+msgid "VenoBox Options"
+msgstr "VenoBox Options"
+
+#: include/class-venobox-plugin.php:233
+msgid "VenoBox Settings"
+msgstr "Impostazioni Venobox"
+
+#. declare the section id.
+#: include/class-venobox-plugin.php:408
+msgid "Videos"
+msgstr "Video"
+
+#: include/class-venobox-plugin.php:848
+msgid "WooCommerce"
+msgstr "WooCommerce"
