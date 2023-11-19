@@ -35,19 +35,31 @@ var VenoboxWP = (function(){
 		document.addEventListener('facetwp-loaded', enableVenoBox);
 	}
 
-	function checkURL(url) {
-	    return(url.match(/\.(jpeg|jpg|gif|png|webp)$/) != null);
+	function isImage(url) {
+		return(/\.(jpeg|jpg|gif|png|webp)$/i.test(url));
+	}
+
+	function isVideo(url) {
+		var regYt = /(https?:\/\/)?((www\.)?(youtube(-nocookie)?|youtube.googleapis)\.com.*(v\/|v=|vi=|vi\/|e\/|embed\/|user\/.*\/u\/\d+\/)|youtu\.be\/)([_0-9a-z-]+)/i;
+		var regVim = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/;
+	    if (
+	    	/\.(mp4|ogg|ogv|mov|webm)$/i.test(url) || 
+	    	url.match(regYt) || url.match(regVim)
+	    ) {
+	    	return true;
+	    }
+	    return false;
 	}
 
 	// Images
-	function imagesVeno() {
+	function initImages() {
 
 		var linklist = [];
 		var boxlinks = document.querySelectorAll('a[href]');
 
 		for (var i=0,l=boxlinks.length; i<l; i++) {
 			if (boxlinks[i].getAttribute('href')) {
-				if ( checkURL(boxlinks[i].getAttribute('href')) ) {
+				if (isImage(boxlinks[i].getAttribute('href'))) {
 					linklist.push(boxlinks[i]);
 				}
 			}
@@ -73,7 +85,7 @@ var VenoboxWP = (function(){
 						el.setAttribute("title", imgSelector.getAttribute("title"));
 				  		break;
 					case '3':
-						var gallItem = el.closest('figure');
+						var gallItem = el.closest("figure");
 						if (gallItem) {
 							var caption = gallItem.querySelector("figcaption");
 							if (caption) {
@@ -89,7 +101,7 @@ var VenoboxWP = (function(){
 	}
 
 	// Galleries
-	function galleryVeno() {
+	function initGalleries() {
 
 		// Set galleries to have unique data-gall sets
 		var galleries = document.querySelectorAll('div[id^="gallery"], .gallery-row');
@@ -116,20 +128,8 @@ var VenoboxWP = (function(){
 		}
 	}
 
-	function checkURLvid(url) {
-		var regYt = /(https?:\/\/)?((www\.)?(youtube(-nocookie)?|youtube.googleapis)\.com.*(v\/|v=|vi=|vi\/|e\/|embed\/|user\/.*\/u\/\d+\/)|youtu\.be\/)([_0-9a-z-]+)/i;
-		var regVim = /^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/;
-	    if (
-	    	url.search(/.+\.mp4|og[gv]|webm/) !== -1 || 
-	    	url.match(regYt) || url.match(regVim)
-	    ) {
-	    	return true;
-	    }
-	    return false;
-	}
-
 	// Videos
-	function videoVeno() {
+	function initVideos() {
 
 		var vidlist = [];
 		var vidlinks = document.querySelectorAll('a[href]');
@@ -137,7 +137,7 @@ var VenoboxWP = (function(){
 		for (var i=0,l=vidlinks.length; i<l; i++) {
 		
 			if (vidlinks[i].getAttribute('href')) {
-				if ( checkURLvid(vidlinks[i].getAttribute('href')) ) {
+				if ( isVideo(vidlinks[i].getAttribute('href')) ) {
 					vidlist.push(vidlinks[i]);
 				}
 			}
@@ -153,7 +153,7 @@ var VenoboxWP = (function(){
 	}
 
 	// Default settings
-	function defaultVeno() {
+	function defaultSettings() {
 		new VenoBox({
 			maxWidth: VENOBOX.max_width,
 			navigation: arrows, // default: false
@@ -181,13 +181,13 @@ var VenoboxWP = (function(){
 
 	function enableVenoBox(){
 		if (VENOBOX.all_images) {
-			imagesVeno();
-			galleryVeno();
+			initImages();
+			initGalleries();
 		}
 		if (VENOBOX.all_videos) {
-			videoVeno();
+			initVideos();
 		}
-		defaultVeno();
+		defaultSettings();
 	}
 
 	function init(){
