@@ -95,6 +95,7 @@ class VenoBox_Plugin {
 		$options_default = array(
 			'numeratio' => '',
 			'infinigall' => '',
+			'max_width' => '100%',
 			'share_style' => 'pill',
 			'title_style' => 'bar',
 			'nav_keyboard' => '',
