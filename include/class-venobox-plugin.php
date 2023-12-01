@@ -36,7 +36,7 @@ class VenoBox_Plugin {
 	 *
 	 * @var options_name
 	 */
-	private $venobox_js_version = '2.0.8';
+	private $venobox_js_version = '2.0.9';
 
 	/**
 	 * Returns the running object
