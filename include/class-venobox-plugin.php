@@ -316,7 +316,7 @@ class VenoBox_Plugin {
 			$page, // page that it appears on.
 			array(
 				'before_section' => '<div class="tabs-content" id="tab-general">', // Open general settings TAB
-				// 'after_section' => '</div>', // Close it later, after videos
+				// 'after_section' => '</div>', // Close it later, after videos.
 			)
 		);
 
@@ -994,13 +994,6 @@ class VenoBox_Plugin {
 	 */
 	public function venobox_section_callback() {
 		// var_dump($this->get_option('all')); // debug.
-		?>
-<!-- 	<ul>
-		<li><a href="#tab-01">Tab #01</a></li>
-		<li><a href="#tab-02">Tab #02</a></li>
-		<li><a href="#tab-03">Tab #03</a></li>
-	</ul> -->
-	<?php
 	}
 
 	/**
