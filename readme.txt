@@ -2,10 +2,11 @@
 
 Author: Nicola Franchini
 contributors: nicolafranchini
-Version: 1.0.1
-Stable tag: 1.0.1
+Version: 1.0.2
+Stable tag: 1.0.2
 Tested up to: 6.4
 Requires at least: 4.0
+Requires PHP: 5.3
 Plugin Name: VenoBox
 Plugin URI: https://wordpress.org/plugins/venobox/
 Description: Modal windows for images, videos, inline contents, iFrames, Ajax requests. Touch swipe galleries.
@@ -75,9 +76,16 @@ Enable VenoBox for Images and/or Videos inside the plugin's settings section.
 
 3. UI Style
 
-4. Disable VenoBox on specific post or page
+4. Integrations
+
+5. Disable VenoBox on specific post or page
 
 == Changelog ==
+
+= 1.0.2 =
+* Update VenoBox.js to 2.1.3
+* Update: Tab navigation for settings page
+* Update: FitView option as class vnobox-fitview
 
 = 1.0.1 =
 * Update VenoBox.js to 2.0.9
@@ -85,3 +93,7 @@ Enable VenoBox for Images and/or Videos inside the plugin's settings section.
 = 1.0.0 =
 * First release
 
+ == Upgrade Notice ==
+
+= 1.0.0 =
+* First release

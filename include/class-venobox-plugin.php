@@ -36,7 +36,7 @@ class VenoBox_Plugin {
 	 *
 	 * @var options_name
 	 */
-	private $venobox_js_version = '2.1.1';
+	private $venobox_js_version = '2.1.3';
 
 	/**
 	 * Returns the running object
@@ -101,10 +101,10 @@ class VenoBox_Plugin {
 			'nav_keyboard' => '',
 			'nav_touch' => '',
 			'nav_speed' => 300,
-			'all_images' => '',
+			'all_images' => false,
 			'title_select' => 1,
 			'title_position' => 'top',
-			'all_videos' => '',
+			'all_videos' => false,
 			'border_width' => '',
 			'border_color' => 'rgba(255,255,255,1)',
 			'preloader' => 'bounce',
@@ -125,6 +125,8 @@ class VenoBox_Plugin {
 
 		$debug = ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) ? '' : '.min';
 
+		// $enabled = ( ( $options['all_images'] || $options['all_videos'] ) && ! strlen( $disable_venobox ) ) || ( ( ! $options['all_images'] && ! $options['all_videos'] ) && strlen( $disable_venobox ) );
+		// if ( $enabled ) {
 		if ( ! strlen( $disable_venobox ) ) {
 			wp_enqueue_style( 'venobox-wp', plugin_dir_url( __DIR__ ) . 'assets/venobox/dist/venobox' . $debug . '.css', array(), $this->venobox_js_version, 'all' );
 			wp_enqueue_script( 'venobox-wp', plugin_dir_url( __DIR__ ) . 'assets/venobox/dist/venobox' . $debug . '.js', array(), $this->venobox_js_version, true );
@@ -218,7 +220,7 @@ class VenoBox_Plugin {
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'wp-color-picker-alpha', plugin_dir_url( __DIR__ ) . 'js/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), '3.0.0', true );
 		wp_enqueue_style( 'venobox-admin', plugin_dir_url( __DIR__ ) . 'css/admin.css', array(), VENOBOX_PLUGIN_VERSION );
-		wp_enqueue_script( 'venobox-admin', plugin_dir_url( __DIR__ ) . 'js/admin.js', array( 'wp-color-picker-alpha' ), VENOBOX_PLUGIN_VERSION, true );
+		wp_enqueue_script( 'venobox-admin', plugin_dir_url( __DIR__ ) . 'js/admin.js', array( 'jquery-ui-tabs', 'wp-color-picker-alpha' ), VENOBOX_PLUGIN_VERSION, true );
 	}
 
 	/**
@@ -273,17 +275,23 @@ class VenoBox_Plugin {
 	public function plugin_options_page() {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			wp_die( 'Not allowed' );
-		}
-		?>
-		<div class="wrap">
+		} ?>
+		<div class="wrap venobox-options">
 			<h1><?php esc_html_e( 'VenoBox Options', 'venobox' ); ?></h1>
 			<form method="post" action="options.php">
+				<div id="tabs">
+					<ul class="nav-tab-wrapper">
+						<li><a href="#tab-general" class="nav-tab"><?php esc_attr_e( 'General settings', 'venobox' ); ?></a></li>
+						<li><a href="#tab-style" class="nav-tab"><?php esc_attr_e( 'Style', 'venobox' ); ?></a></li>
+						<li><a href="#tab-integration" class="nav-tab"><?php esc_attr_e( 'Integrations', 'venobox' ); ?></a></li>
+					</ul>
 			<?php
 			// settings_errors(); // only on single option page.
 			settings_fields( $this->options_name . '_group' );
 			do_settings_sections( 'venobox-options' );
 			submit_button();
 			?>
+				</div>
 			</form>
 		</div>
 		<?php
@@ -305,7 +313,11 @@ class VenoBox_Plugin {
 			$section, // declare the section id.
 			__( 'General Settings', 'venobox' ), // page title.
 			array( $this, 'venobox_section_callback' ), // callback function below.
-			$page // page that it appears on.
+			$page, // page that it appears on.
+			array(
+				'before_section' => '<div class="tabs-content" id="tab-general">', // Open general settings TAB
+				// 'after_section' => '</div>', // Close it later, after videos
+			)
 		);
 
 		$args = array(
@@ -345,7 +357,11 @@ class VenoBox_Plugin {
 			$section . '_images', // declare the section id.
 			__( 'Images', 'venobox' ), // page title.
 			array( $this, 'venobox_section_callback' ), // callback function below.
-			$page // page that it appears on.
+			$page, // page that it appears on.
+			array(
+				// 'before_section' => '<div class="tabs-content" id="tab-images">',
+				// 'after_section' => '</div>',
+			)
 		);
 		$args = array(
 			'name' => 'fit_view',
@@ -353,6 +369,7 @@ class VenoBox_Plugin {
 			'subtype' => 'checkbox',
 			'label' => __( 'Resize the images to fit within the viewport height', 'venobox' ),
 			'default' => '',
+			'help' => __( 'To set FitView only to specific elements add the class venobox-fitview to one of their containers', 'venobox' ),
 		);
 		add_settings_field(
 			'fit_view', // unique id of field.
@@ -401,7 +418,11 @@ class VenoBox_Plugin {
 			$section . '_videos', // declare the section id.
 			__( 'Videos', 'venobox' ), // page title.
 			array( $this, 'venobox_section_callback' ), // callback function below.
-			$page // page that it appears on.
+			$page, // page that it appears on.
+			array(
+				// 'before_section' => '<div class="tabs-content" id="tab-videos">',
+				// 'after_section' => '</div>', // Close general settings tab
+			)
 		);
 
 		$args = array(
@@ -457,7 +478,11 @@ class VenoBox_Plugin {
 			$section . '_galleries', // declare the section id.
 			__( 'Galleries', 'venobox' ), // page title.
 			array( $this, 'venobox_section_callback' ), // callback function below.
-			$page // page that it appears on.
+			$page, // page that it appears on.
+			array(
+				// 'before_section' => '<div class="tabs-content" id="tab-galleries">',
+				'after_section' => '</div>',
+			)
 		);
 
 		$args = array(
@@ -559,7 +584,11 @@ class VenoBox_Plugin {
 			$section . '_style', // declare the section id.
 			__( 'Style', 'venobox' ), // page title.
 			array( $this, 'venobox_section_callback' ), // callback function below.
-			$page // page that it appears on.
+			$page, // page that it appears on.
+			array(
+				'before_section' => '<div class="tabs-content" id="tab-style">',
+				'after_section' => '</div>',
+			)
 		);
 
 		$args = array(
@@ -666,7 +695,6 @@ class VenoBox_Plugin {
 					'value' => 'chase',
 					'label' => '<div class="sk-chase"><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div><div class="sk-chase-dot"></div></div>',
 				),
-
 				array(
 					'value' => 'circle',
 					'label' => '<div class="sk-circle sk-center"><div class="sk-circle-dot"></div><div class="sk-circle-dot"></div><div class="sk-circle-dot"></div><div class="sk-circle-dot"></div><div class="sk-circle-dot"></div><div class="sk-circle-dot"></div><div class="sk-circle-dot"></div><div class="sk-circle-dot"></div><div class="sk-circle-dot"></div><div class="sk-circle-dot"></div><div class="sk-circle-dot"></div><div class="sk-circle-dot"></div></div>',
@@ -827,7 +855,11 @@ class VenoBox_Plugin {
 			$section . '_integration', // declare the section id.
 			__( 'Integration', 'venobox' ), // page title.
 			array( $this, 'venobox_section_callback' ), // callback function below.
-			$page // page that it appears on.
+			$page, // page that it appears on.
+			array(
+				'before_section' => '<div class="tabs-content" id="tab-integration">',
+				'after_section' => '</div>',
+			)
 		);
 
 		$args = array(
@@ -962,6 +994,13 @@ class VenoBox_Plugin {
 	 */
 	public function venobox_section_callback() {
 		// var_dump($this->get_option('all')); // debug.
+		?>
+<!-- 	<ul>
+		<li><a href="#tab-01">Tab #01</a></li>
+		<li><a href="#tab-02">Tab #02</a></li>
+		<li><a href="#tab-03">Tab #03</a></li>
+	</ul> -->
+	<?php
 	}
 
 	/**

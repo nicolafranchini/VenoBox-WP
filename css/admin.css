@@ -197,7 +197,6 @@
 	background: rgba(255, 255, 255, 0.5);
 }
 
-
 .image-radio:checked + label {
   background: rgba(255, 255, 255, 0.8);
   border-color: #B1B1B1;
@@ -212,5 +211,15 @@
 	align-items: center;
 	justify-content: center;
 }
-
-
+.venobox-options .ui-tabs-tab{
+	margin: 0;
+}
+.venobox-options .ui-tabs-active a{
+border-bottom: 1px solid #f0f0f1;
+  background: #f0f0f1;
+  color: #000;
+  margin-bottom: -1px;
+}
+.venobox-options .nav-tab-wrapper a:focus{
+	box-shadow: none;
+}

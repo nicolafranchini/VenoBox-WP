@@ -1,26 +1,28 @@
 var VenoboxWP = (function(){
     "use strict";
+
 	// Convert values from 0/1 to false/true
 	var numeratio = false, infinigall = false, autoplay = false, arrows = true, nav_keyboard = true, nav_touch = true, fit_view = false;
-	if (VENOBOX.numeratio ) {
+
+	if (VENOBOX.numeratio) {
 		numeratio = true;
 	}
-	if (VENOBOX.infinigall ) {
+	if (VENOBOX.infinigall) {
 		infinigall = true;
 	}
-	if (VENOBOX.autoplay ) {
+	if (VENOBOX.autoplay) {
 		autoplay = true;
 	}
-	if (VENOBOX.arrows ) {
+	if (VENOBOX.arrows) {
 		arrows = false;
 	}
-	if (VENOBOX.nav_keyboard ) {
+	if (VENOBOX.nav_keyboard) {
 		nav_keyboard = false;
 	}
-	if (VENOBOX.nav_touch ) {
+	if (VENOBOX.nav_touch) {
 		nav_touch = false;
 	}
-	if (VENOBOX.fit_view ) {
+	if (VENOBOX.fit_view) {
 		fit_view = true;
 	}
 
@@ -52,7 +54,7 @@ var VenoboxWP = (function(){
 	}
 
 	// Images
-	function initImages() {
+	function initImages(boxlinks) {
 
 		var linklist = [];
 		var boxlinks = document.querySelectorAll('a[href]');
@@ -65,14 +67,14 @@ var VenoboxWP = (function(){
 			}
 		}
 
-		Array.prototype.forEach.call(linklist, function(el, i){
+		linklist.forEach(function(el, i){
 
 			if (el.href.indexOf('?') < 0) {
 				el.classList.add('venobox');
 
 				var imgSelector = el.querySelector("img");
 
-				if ( ! el.hasAttribute('data-gall') ) {
+				if (!el.hasAttribute('data-gall') ) {
 					el.dataset.gall = 'gallery';
 				}
 
@@ -104,22 +106,21 @@ var VenoboxWP = (function(){
 	function initGalleries() {
 
 		// Set galleries to have unique data-gall sets
-		var galleries = document.querySelectorAll('div[id^="gallery"], .gallery-row');
-		
-		Array.prototype.forEach.call(galleries, function(gall, i){
-			var links = gall.querySelectorAll('a');
-			Array.prototype.forEach.call(links, function(link, i){
-				link.dataset.gall = 'venoset-'+i;
+		const galleries = document.querySelectorAll('div[id^="gallery"], .gallery-row, .wp-block-gallery');
+		galleries.forEach(function(gallery, i){
+			const allLinks = gallery.querySelectorAll('a');
+			allLinks.forEach(function(link, index){
+				link.dataset.gall = 'venoset-'+index;
 			});
-		});
+		})
 
 		// Jetpacks caption as title
 		if (VENOBOX.title_select == 3) {
-			var tiledgalleries = document.querySelectorAll('.tiled-gallery-item a');
-			Array.prototype.forEach.call(tiledgalleries, function(tiledgall, i){
-				var gallItem = tiledgall.closest('.tiled-gallery-item');
+			const tiledgalleries = document.querySelectorAll('.tiled-gallery-item a');
+			tiledgalleries.forEach(function(tiledgall, i){
+				const gallItem = tiledgall.closest('.tiled-gallery-item');
 				if (gallItem) {
-					var caption = gallItem.querySelector(".tiled-gallery-caption").innerText;
+					const caption = gallItem.querySelector(".tiled-gallery-caption").innerText;
 					if (caption) {
 						tiledgall.setAttribute("title", caption);
 					}
@@ -129,26 +130,36 @@ var VenoboxWP = (function(){
 	}
 
 	// Videos
-	function initVideos() {
+	function initVideos(vidlinks) {
 
 		var vidlist = [];
-		var vidlinks = document.querySelectorAll('a[href]');
+		// var vidlinks = document.querySelectorAll('a[href]');
 
-		for (var i=0,l=vidlinks.length; i<l; i++) {
-		
-			if (vidlinks[i].getAttribute('href')) {
-				if ( isVideo(vidlinks[i].getAttribute('href')) ) {
-					vidlist.push(vidlinks[i]);
+		vidlinks.forEach(function(vidlink){
+			if (vidlink.getAttribute('href')) {
+				if ( isVideo(vidlink.getAttribute('href')) ) {
+					vidlist.push(vidlink);
 				}
 			}
-		}
-		Array.prototype.forEach.call(vidlist, function(el, i){
+		});
+
+		vidlist.forEach(function(el){
 			el.classList.add('venobox');
 			el.dataset.vbtype = 'video';
 			// Dont replace the data-gall if already set
 			if ( ! el.hasAttribute('data-gall')) {
 				el.dataset.gall = 'gallery';
 			}
+		});
+	}
+
+	function setDataAttributes() {
+		const fit_refs = document.querySelectorAll('.venobox-fitview');
+		fit_refs.forEach(function(fitwrap){
+			const fitlinks = fitwrap.querySelectorAll('a[href]');
+			fitlinks.forEach(function(fitlink){
+				fitlink.dataset.fitview = 1
+			});
 		});
 	}
 
@@ -179,20 +190,23 @@ var VenoboxWP = (function(){
 		});
 	}
 
-	function enableVenoBox(){
+	function enableVenoBox(allLinks){
+
+		setDataAttributes();
+
 		if (VENOBOX.all_images) {
-			initImages();
+			initImages(allLinks);
 			initGalleries();
 		}
 		if (VENOBOX.all_videos) {
-			initVideos();
+			initVideos(allLinks);
 		}
 		defaultSettings();
 	}
 
 	function init(){
-		enableVenoBox();
-		// Init main Venobox
+		const allLinks = document.querySelectorAll('a[href]');
+		enableVenoBox(allLinks);
 	}
 
 	return {

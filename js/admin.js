@@ -1,4 +1,6 @@
-jQuery(document).ready(function($){
-    /* Call the Color Picker */
-    $( ".color-picker" ).wpColorPicker();
-});
+(function($) {
+    $(function(){
+        $( ".color-picker" ).wpColorPicker();
+        $("#tabs").tabs();
+    });
+})(jQuery);
