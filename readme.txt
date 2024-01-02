@@ -1,4 +1,4 @@
-=== VenoBox ===
+=== VenoBox 2 - Responsive lightbox - zoom popups for images, videos, touch enabled swipe galleries ===
 
 Author: Nicola Franchini
 contributors: nicolafranchini
@@ -19,7 +19,7 @@ Donate link: https://www.paypal.com/donate?hosted_button_id=2SUA56VZHYYMQ
 
 == Description ==
 
-VenoBox is a lightweight plugin that takes image and video showcasing to the next level. Built on the foundation of venobox.js, this plugin stands out by calculating the optimal display size for images, preserving their height, and ensuring a seamless viewing experience. Now, with even more enhancements, VenoBox can also resizes the images to fit within the viewport height
+VenoBox is a lightweight plugin that takes image and video showcasing to the next level. Built on the foundation of venobox.js, this plugin stands out by calculating the optimal display size for images, preserving their height, and ensuring a seamless viewing experience. Now, with even more options, VenoBox can also resizes the images to fit within the viewport height
 
 ### Features
 
@@ -52,9 +52,6 @@ Tailor the appearance of VenoBox to match your brand with customizable colors an
 
 * **WooCommerce Compatibility:** 
 VenoBox seamlessly integrates with WooCommerce product galleries, offering a streamlined solution for displaying your products with style and flair.
-
-Experience the next level of visual storytelling on your WordPress website with VenoBox. Download now to unlock a world of possibilities, where responsive design, multimedia versatility, and customizable aesthetics converge for an unparalleled user experience. Elevate your content, captivate your audience, and make every image and video a memorable moment with VenoBox.
-
 
 == Installation ==
 

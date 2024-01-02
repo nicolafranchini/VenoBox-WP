@@ -110,7 +110,7 @@ var VenoboxWP = (function(){
 		galleries.forEach(function(gallery, i){
 			const allLinks = gallery.querySelectorAll('a');
 			allLinks.forEach(function(link, index){
-				link.dataset.gall = 'venoset-'+index;
+				link.dataset.gall = 'venoset-'+i;
 			});
 		})
 
