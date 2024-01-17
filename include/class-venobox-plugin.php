@@ -9,7 +9,9 @@
  * @author    Author: Nicola Franchini
  * @link      https://wordpress.org/plugins/venobox/
  */
-
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 /**
  * Main plugin class
  *

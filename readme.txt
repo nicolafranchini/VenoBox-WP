@@ -83,6 +83,7 @@ Enable VenoBox for Images and/or Videos inside the plugin's settings section.
 * Update VenoBox.js to 2.1.3
 * Update: Tab navigation for settings page
 * Update: FitView option as class vnobox-fitview
+* Update prevent direct access to files
 
 = 1.0.1 =
 * Update VenoBox.js to 2.0.9
