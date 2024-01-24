@@ -9,6 +9,7 @@
  * @author    Author: Nicola Franchini
  * @link      https://wordpress.org/plugins/venobox/
  */
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -38,7 +39,7 @@ class VenoBox_Plugin {
 	 *
 	 * @var options_name
 	 */
-	private $venobox_js_version = '2.1.3';
+	private $venobox_js_version = '2.1.6';
 
 	/**
 	 * Returns the running object
@@ -306,16 +307,17 @@ class VenoBox_Plugin {
 
 		$section = 'venobox_section';
 		$page = 'venobox-options';
+		$prefix = 'vbox_';
 
 		register_setting(
 			$this->options_name . '_group', // option group.
 			$this->options_name // option name.
 		);
 		add_settings_section(
-			$section, // declare the section id.
-			__( 'General Settings', 'venobox' ), // page title.
-			array( $this, 'venobox_section_callback' ), // callback function below.
-			$page, // page that it appears on.
+			$section,
+			__( 'General Settings', 'venobox' ),
+			array( $this, 'venobox_section_callback' ),
+			$page,
 			array(
 				'before_section' => '<div class="tabs-content" id="tab-general">', // Open general settings TAB
 				// 'after_section' => '</div>', // Close it later, after videos.
@@ -330,10 +332,10 @@ class VenoBox_Plugin {
 			'default' => '',
 		);
 		add_settings_field(
-			'all_images', // unique id of field.
-			__( 'Link Images', 'venobox' ), // title.
-			array( $this, 'render_settings_field' ), // callback function below.
-			$page, // page that it appears on.
+			$prefix . 'all_images',
+			__( 'Link Images', 'venobox' ),
+			array( $this, 'render_settings_field' ),
+			$page,
 			$section, // settings section declared in add_settings_section.
 			$args
 		);
@@ -347,7 +349,7 @@ class VenoBox_Plugin {
 		);
 
 		add_settings_field(
-			'all_videos',
+			$prefix . 'all_videos',
 			__( 'Link videos', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -356,10 +358,10 @@ class VenoBox_Plugin {
 		);
 
 		add_settings_section(
-			$section . '_images', // declare the section id.
-			__( 'Images', 'venobox' ), // page title.
-			array( $this, 'venobox_section_callback' ), // callback function below.
-			$page, // page that it appears on.
+			$section . '_images',
+			__( 'Images', 'venobox' ),
+			array( $this, 'venobox_section_callback' ),
+			$page,
 			array(
 				// 'before_section' => '<div class="tabs-content" id="tab-images">',
 				// 'after_section' => '</div>',
@@ -374,7 +376,7 @@ class VenoBox_Plugin {
 			'help' => __( 'To set FitView only to specific elements add the class venobox-fitview to one of their containers', 'venobox' ),
 		);
 		add_settings_field(
-			'fit_view', // unique id of field.
+			$prefix . 'fit_view', // unique id of field.
 			__( 'Fit view', 'venobox' ), // title.
 			array( $this, 'render_settings_field' ), // callback function below.
 			$page, // page that it appears on.
@@ -408,7 +410,7 @@ class VenoBox_Plugin {
 			'help' => __( 'Media attribute to be used as title', 'venobox' ),
 		);
 		add_settings_field(
-			'title_select',
+			$prefix . 'title_select',
 			__( 'Item Title', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -435,7 +437,7 @@ class VenoBox_Plugin {
 			'default' => '',
 		);
 		add_settings_field(
-			'autoplay',
+			$prefix . 'autoplay',
 			__( 'Autoplay', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -468,7 +470,7 @@ class VenoBox_Plugin {
 			'help' => __( 'Aspect ratio for video and iFrame', 'venobox' ),
 		);
 		add_settings_field(
-			'ratio',
+			$prefix . 'ratio',
 			__( 'Aspect ratio', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -494,7 +496,7 @@ class VenoBox_Plugin {
 			'default' => 300,
 		);
 		add_settings_field(
-			'nav_speed',
+			$prefix . 'nav_speed',
 			__( 'Transition speed (ms)', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -510,7 +512,7 @@ class VenoBox_Plugin {
 			'default' => '',
 		);
 		add_settings_field(
-			'numeratio',
+			$prefix . 'numeratio',
 			__( 'Gallery Numeration', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -526,7 +528,7 @@ class VenoBox_Plugin {
 			'default' => '',
 		);
 		add_settings_field(
-			'infinigall',
+			$prefix . 'infinigall',
 			__( 'Infinite Gallery', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -542,7 +544,7 @@ class VenoBox_Plugin {
 			'default' => '',
 		);
 		add_settings_field(
-			'arrows',
+			$prefix . 'arrows',
 			__( 'Disable Navigation', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -558,7 +560,7 @@ class VenoBox_Plugin {
 			'default' => '',
 		);
 		add_settings_field(
-			'nav_keyboard',
+			$prefix . 'nav_keyboard',
 			__( 'Disable keyboard', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -574,7 +576,7 @@ class VenoBox_Plugin {
 			'default' => '',
 		);
 		add_settings_field(
-			'nav_touch',
+			$prefix . 'nav_touch',
 			__( 'Disable swipe', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -600,7 +602,7 @@ class VenoBox_Plugin {
 			'default' => 'rgba(0,0,0,0.85)',
 		);
 		add_settings_field(
-			'overlay',
+			$prefix . 'overlay',
 			__( 'Overlay Color', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -615,7 +617,7 @@ class VenoBox_Plugin {
 			'default' => 'rgba(255,255,255,1)',
 		);
 		add_settings_field(
-			'nav_elements',
+			$prefix . 'nav_elements',
 			__( 'Navigation & Title Color', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -630,7 +632,7 @@ class VenoBox_Plugin {
 			'default' => 'rgba(0,0,0,0.85)',
 		);
 		add_settings_field(
-			'nav_elements_bg',
+			$prefix . 'nav_elements_bg',
 			__( 'Title and share bar background', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -645,7 +647,7 @@ class VenoBox_Plugin {
 			'default' => '100%',
 		);
 		add_settings_field(
-			'max_width',
+			$prefix . 'max_width',
 			__( 'Max item width', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -660,7 +662,7 @@ class VenoBox_Plugin {
 			'default' => 0,
 		);
 		add_settings_field(
-			'border_width',
+			$prefix . 'border_width',
 			__( 'Frame Border Thickness', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -675,7 +677,7 @@ class VenoBox_Plugin {
 			'default' => 'rgba(255,255,255,1)',
 		);
 		add_settings_field(
-			'border_color',
+			$prefix . 'border_color',
 			__( 'Frame Border Color', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -741,7 +743,7 @@ class VenoBox_Plugin {
 			'default' => 'bounce',
 		);
 		add_settings_field(
-			'preloader',
+			$prefix . 'preloader',
 			__( 'Preloader Type', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -765,7 +767,7 @@ class VenoBox_Plugin {
 			'default' => 'top',
 		);
 		add_settings_field(
-			'title_position',
+			$prefix . 'title_position',
 			__( 'Title Position', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -797,7 +799,7 @@ class VenoBox_Plugin {
 			'default' => 'bar',
 		);
 		add_settings_field(
-			'title_style',
+			$prefix . 'title_style',
 			__( 'Title style', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -813,7 +815,7 @@ class VenoBox_Plugin {
 			'default' => '',
 		);
 		add_settings_field(
-			'share',
+			$prefix . 'share',
 			__( 'Sharing', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -845,7 +847,7 @@ class VenoBox_Plugin {
 			'default' => 'pill',
 		);
 		add_settings_field(
-			'share_style',
+			$prefix . 'share_style',
 			__( 'Share style', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -872,7 +874,7 @@ class VenoBox_Plugin {
 			'default' => '',
 		);
 		add_settings_field(
-			'woocommerce',
+			$prefix . 'woocommerce',
 			__( 'WooCommerce', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -888,7 +890,7 @@ class VenoBox_Plugin {
 			'default' => '',
 		);
 		add_settings_field(
-			'facetwp',
+			$prefix . 'facetwp',
 			__( 'FacetWP', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -904,7 +906,7 @@ class VenoBox_Plugin {
 			'default' => '',
 		);
 		add_settings_field(
-			'searchfp',
+			$prefix . 'searchfp',
 			__( 'Search & Filter Pro', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -920,7 +922,7 @@ class VenoBox_Plugin {
 			'default' => '',
 		);
 		add_settings_field(
-			'bb_lightbox',
+			$prefix . 'bb_lightbox',
 			__( 'Beaver Builder', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
@@ -930,7 +932,7 @@ class VenoBox_Plugin {
 	}
 
 	/**
-	 *  Add setting field
+	 *  Render setting field
 	 *
 	 * @param array $args input options.
 	 */
@@ -986,7 +988,7 @@ class VenoBox_Plugin {
 				break;
 		}
 		$output .= isset( $args['help'] ) ? '<p>' . esc_html( $args['help'] ) . '</p>' : '';
-		echo $output; // phpcs:ignore
+		echo wp_kses_post( $output );
 	}
 
 

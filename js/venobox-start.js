@@ -131,10 +131,7 @@ var VenoboxWP = (function(){
 
 	// Videos
 	function initVideos(vidlinks) {
-
 		var vidlist = [];
-		// var vidlinks = document.querySelectorAll('a[href]');
-
 		vidlinks.forEach(function(vidlink){
 			if (vidlink.getAttribute('href')) {
 				if ( isVideo(vidlink.getAttribute('href')) ) {

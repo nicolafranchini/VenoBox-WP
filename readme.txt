@@ -1,4 +1,4 @@
-=== VenoBox 2 - Responsive lightbox - zoom popups for images, videos, touch enabled swipe galleries ===
+=== VenoBox 2 ===
 
 Author: Nicola Franchini
 contributors: nicolafranchini
@@ -9,13 +9,14 @@ Requires at least: 4.0
 Requires PHP: 5.3
 Plugin Name: VenoBox
 Plugin URI: https://wordpress.org/plugins/venobox/
-Description: Modal windows for images, videos, inline contents, iFrames, Ajax requests. Touch swipe galleries.
-Tags: lightbox, video, responsive, modal, pop-up, gallery, images, woocommerce, swipe
+Description: Responsive lightbox modal windows for images, videos, inline contents, iFrames, Ajax requests. Touch swipe galleries.
+Tags: lightbox, modal, pop-up, gallery, zoom
 Author URI: https://veno.es/
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 Donate link: https://www.paypal.com/donate?hosted_button_id=2SUA56VZHYYMQ
 
+Responsive lightbox modal windows for images, videos, inline contents, iFrames, Ajax requests. Touch swipe galleries.
 
 == Description ==
 
@@ -53,6 +54,24 @@ Tailor the appearance of VenoBox to match your brand with customizable colors an
 * **WooCommerce Compatibility:** 
 VenoBox seamlessly integrates with WooCommerce product galleries, offering a streamlined solution for displaying your products with style and flair.
 
+
+### 3rd party services
+
+**YouTube** 
+If you enable VenoBox for videos and link YouTube videos, the plugin embeds the videos inside of your website with the following url:
+https://www.youtube-nocookie.com/embed/
+
+Terms of servce:
+https://developers.google.com/youtube/terms/api-services-terms-of-service
+
+**Vimeo** 
+If you enable VenoBox for videos and link Vimeo videos, the plugin embeds the videos inside of your website with the following url:
+https://player.vimeo.com/video/
+
+Terms of servce:
+https://vimeo.com/terms
+
+
 == Installation ==
 
 1. Upload the plugin folder `venobox` to the `/wp-content/plugins/` directory
@@ -63,6 +82,7 @@ VenoBox seamlessly integrates with WooCommerce product galleries, offering a str
 == Usage ==
 
 Enable VenoBox for Images and/or Videos inside the plugin's settings section.
+Adjust style and gallery options
 
 
 == Screenshots ==
@@ -79,14 +99,20 @@ Enable VenoBox for Images and/or Videos inside the plugin's settings section.
 
 == Changelog ==
 
+= 1.0.3 =
+* Update: venobox.js to 2.1.6
+* Update: prefix settings fields
+* Update: escape output
+* Update: 3rd party services documentation
+
 = 1.0.2 =
 * Update VenoBox.js to 2.1.3
 * Update: Tab navigation for settings page
 * Update: FitView option as class vnobox-fitview
-* Update prevent direct access to files
+* Update: prevent direct access to files
 
 = 1.0.1 =
-* Update VenoBox.js to 2.0.9
+* Update: VenoBox.js to 2.0.9
 
 = 1.0.0 =
 * First release
