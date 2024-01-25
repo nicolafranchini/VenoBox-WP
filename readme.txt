@@ -97,9 +97,24 @@ Adjust style and gallery options
 
 5. Disable VenoBox on specific post or page
 
+== Frequently Asked Questions == 
+
+= How to open remote content inside iFrames? =
+Add the class `venobox-iframe` to your links
+
+= How to get results from ajax calls? =
+Add the class `venobox-ajax` to your links
+
+= How to open inline content inside iFrames? =
+Add the class `venobox-inline` to your links
+
+= Can the images be resized to fit within the viewport height? =
+Yes, with the global option `Fit view`, or to individual links or group of links adding the class `venobox-fitview` to one of their containers
+
 == Changelog ==
 
 = 1.0.3 =
+* New: initialize iframes, inline content and ajax calls with `venobox-`classes
 * Update: venobox.js to 2.1.6
 * Update: prefix settings fields
 * Update: escape output
@@ -108,7 +123,7 @@ Adjust style and gallery options
 = 1.0.2 =
 * Update VenoBox.js to 2.1.3
 * Update: Tab navigation for settings page
-* Update: FitView option as class vnobox-fitview
+* Update: FitView option as class venobox-fitview
 * Update: prevent direct access to files
 
 = 1.0.1 =

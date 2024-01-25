@@ -133,7 +133,7 @@ class VenoBox_Plugin {
 		if ( ! strlen( $disable_venobox ) ) {
 			wp_enqueue_style( 'venobox-wp', plugin_dir_url( __DIR__ ) . 'assets/venobox/dist/venobox' . $debug . '.css', array(), $this->venobox_js_version, 'all' );
 			wp_enqueue_script( 'venobox-wp', plugin_dir_url( __DIR__ ) . 'assets/venobox/dist/venobox' . $debug . '.js', array(), $this->venobox_js_version, true );
-			wp_register_script( 'venobox-start', plugin_dir_url( __DIR__ ) . 'js/venobox-start.js', array( 'venobox-wp' ), VENOBOX_PLUGIN_VERSION, true );
+			wp_register_script( 'venobox-start', plugin_dir_url( __DIR__ ) . 'js/venobox-start.js', array( 'venobox-wp' ), VBOX_VENOBOX_PLUGIN_VERSION, true );
 
 			// Disable jQuery MagnificPopUp used on BeaverBuilder.
 			if ( $options['bb_lightbox'] ) {
@@ -222,8 +222,8 @@ class VenoBox_Plugin {
 		}
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'wp-color-picker-alpha', plugin_dir_url( __DIR__ ) . 'js/wp-color-picker-alpha.min.js', array( 'wp-color-picker' ), '3.0.0', true );
-		wp_enqueue_style( 'venobox-admin', plugin_dir_url( __DIR__ ) . 'css/admin.css', array(), VENOBOX_PLUGIN_VERSION );
-		wp_enqueue_script( 'venobox-admin', plugin_dir_url( __DIR__ ) . 'js/admin.js', array( 'jquery-ui-tabs', 'wp-color-picker-alpha' ), VENOBOX_PLUGIN_VERSION, true );
+		wp_enqueue_style( 'venobox-admin', plugin_dir_url( __DIR__ ) . 'css/admin.css', array(), VBOX_VENOBOX_PLUGIN_VERSION );
+		wp_enqueue_script( 'venobox-admin', plugin_dir_url( __DIR__ ) . 'js/admin.js', array( 'jquery-ui-tabs', 'wp-color-picker-alpha' ), VBOX_VENOBOX_PLUGIN_VERSION, true );
 	}
 
 	/**
@@ -262,12 +262,18 @@ class VenoBox_Plugin {
 			array(
 				'id' => 'venobox_help',
 				'title' => __( 'More options' ),
-				'content' => '<p>For Inline contents, Ajax requests and iFrames add the class <code>venobox</code> to your link and set the relative <code>data-vbtype</code></p>
-										<pre>
-&lt;a class="venobox" data-vbtype="iframe" href="https://www.example.com"&gt;Open Iframe&lt;/a&gt;
-&lt;a class="venobox" data-vbtype="inline" title="My Description" href="#inline"&gt;Open inline content&lt;/a&gt;
-&lt;a class="venobox" data-vbtype="ajax" href="ajax-call.php">Retrieve data via Ajax&lt;/a&gt;
-										</pre>',
+				'content' => '<p><b>Inline contents</b>: add the class <code>venobox-inline</code> to your links.</p>
+<pre>
+&lt;a class="venobox-inline" href="#inline"&gt;Open inline content&lt;/a&gt;
+</pre>
+				<p><b>Ajax requests</b>: add the class <code>venobox-ajax</code> to your links.</p>
+<pre>
+&lt;a class="venobox-ajax" href="ajax-call.php">Retrieve data via Ajax&lt;/a&gt;
+</pre>
+				<p><b>iFrames</b>: add the class <code>venobox-iframe</code> to your links.</p>
+<pre>
+&lt;a class="venobox-iframe" href="https://www.example.ext"&gt;Open Iframe&lt;/a&gt;
+</pre>',
 			)
 		);
 		$screen->set_help_sidebar( '<p>Further reference:</p><p><b>Venobox JS</b><br><a href="http://veno.es/venobox/" target="_blank">Plugin Home</a><br><a href="https://github.com/nicolafranchini/VenoBox/" target="_blank">Github</a></p>' );
@@ -336,7 +342,7 @@ class VenoBox_Plugin {
 			__( 'Link Images', 'venobox' ),
 			array( $this, 'render_settings_field' ),
 			$page,
-			$section, // settings section declared in add_settings_section.
+			$section,
 			$args
 		);
 
@@ -376,11 +382,11 @@ class VenoBox_Plugin {
 			'help' => __( 'To set FitView only to specific elements add the class venobox-fitview to one of their containers', 'venobox' ),
 		);
 		add_settings_field(
-			$prefix . 'fit_view', // unique id of field.
-			__( 'Fit view', 'venobox' ), // title.
-			array( $this, 'render_settings_field' ), // callback function below.
-			$page, // page that it appears on.
-			$section . '_images', // settings section declared in add_settings_section.
+			$prefix . 'fit_view',
+			__( 'Fit view', 'venobox' ),
+			array( $this, 'render_settings_field' ),
+			$page,
+			$section . '_images',
 			$args
 		);
 
@@ -419,10 +425,10 @@ class VenoBox_Plugin {
 		);
 
 		add_settings_section(
-			$section . '_videos', // declare the section id.
-			__( 'Videos', 'venobox' ), // page title.
-			array( $this, 'venobox_section_callback' ), // callback function below.
-			$page, // page that it appears on.
+			$section . '_videos',
+			__( 'Videos', 'venobox' ),
+			array( $this, 'venobox_section_callback' ),
+			$page,
 			array(
 				// 'before_section' => '<div class="tabs-content" id="tab-videos">',
 				// 'after_section' => '</div>', // Close general settings tab
@@ -479,10 +485,10 @@ class VenoBox_Plugin {
 		);
 
 		add_settings_section(
-			$section . '_galleries', // declare the section id.
-			__( 'Galleries', 'venobox' ), // page title.
-			array( $this, 'venobox_section_callback' ), // callback function below.
-			$page, // page that it appears on.
+			$section . '_galleries',
+			__( 'Galleries', 'venobox' ),
+			array( $this, 'venobox_section_callback' ),
+			$page,
 			array(
 				// 'before_section' => '<div class="tabs-content" id="tab-galleries">',
 				'after_section' => '</div>',
@@ -585,10 +591,10 @@ class VenoBox_Plugin {
 		);
 
 		add_settings_section(
-			$section . '_style', // declare the section id.
-			__( 'Style', 'venobox' ), // page title.
-			array( $this, 'venobox_section_callback' ), // callback function below.
-			$page, // page that it appears on.
+			$section . '_style',
+			__( 'Style', 'venobox' ),
+			array( $this, 'venobox_section_callback' ),
+			$page,
 			array(
 				'before_section' => '<div class="tabs-content" id="tab-style">',
 				'after_section' => '</div>',
@@ -692,7 +698,6 @@ class VenoBox_Plugin {
 			'options' => array(
 				array(
 					'value' => 'bounce',
-					// 'label' => __( 'Bounce', 'venobox' ),
 					'label' => '<div class="sk-bounce sk-center"><div class="sk-bounce-dot"></div><div class="sk-bounce-dot"></div></div>',
 				),
 				array(
@@ -856,10 +861,10 @@ class VenoBox_Plugin {
 		);
 
 		add_settings_section(
-			$section . '_integration', // declare the section id.
-			__( 'Integration', 'venobox' ), // page title.
-			array( $this, 'venobox_section_callback' ), // callback function below.
-			$page, // page that it appears on.
+			$section . '_integration',
+			__( 'Integration', 'venobox' ),
+			array( $this, 'venobox_section_callback' ),
+			$page,
 			array(
 				'before_section' => '<div class="tabs-content" id="tab-integration">',
 				'after_section' => '</div>',
@@ -941,59 +946,96 @@ class VenoBox_Plugin {
 		$option_name = $args['name'];
 		$default = isset( $args['default'] ) ? $args['default'] : '';
 		$this_option = $this->get_option( $option_name, $default );
-		$output = '';
 
 		switch ( $args['type'] ) {
 			case 'input':
 				if ( 'text' == $args['subtype'] || 'number' == $args['subtype'] ) {
-					$output .= '<input type="' . esc_attr( $args['subtype'] ) . '" class="regular-text" name="' . esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . ']" value="' . esc_attr( $this_option ) . '"/>';
+					?>
+					<input type="<?php echo esc_attr( $args['subtype'] ); ?>" class="regular-text" name="<?php echo esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . ']'; ?>" value="<?php echo esc_attr( $this_option ); ?>"/>
+					<?php
 				}
 				if ( 'checkbox' == $args['subtype'] ) {
-					$output .= '<fieldset><label>
-					<input name="' . esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . ']" type="checkbox" value="1"' . checked( 1, $this_option, false ) . '/>';
-
-					$output .= isset( $args['label'] ) ? '<span class="d-inline-block">' . esc_html( $args['label'] ) . '</span>' : '';
-					$output .= '</label></fieldset>';
+					?>
+<fieldset><label>
+	<input name="<?php echo esc_attr( $this->options_name ); ?>[<?php echo esc_attr( $option_name ); ?>]" type="checkbox" value="1" <?php echo checked( 1, $this_option, false ); ?>/>
+					<?php
+					if ( isset( $args['label'] ) ) {
+						?>
+	<span class="d-inline-block"><?php echo esc_html( $args['label'] ); ?></span>
+						<?php
+					}
+					?>
+</label></fieldset>
+					<?php
 				}
 				if ( 'radio' == $args['subtype'] || 'radio-image' == $args['subtype'] ) {
 					$radioclass = 'radio' == $args['subtype'] ? 'inline-radio' : 'image-radio';
-					$output .= '<fieldset>';
-
-					$output .= 'radio-image' == $args['subtype'] ? '<div class="flex-radio">' : '';
-
-					foreach ( $args['options'] as $option ) {
-						$output .= '<input class="' . $radioclass . '" name="' . esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . ']" id="radio-' . $option_name . '-' . $option['value'] . '" type="radio" value="' . esc_attr( $option['value'] ) . '"' . checked( $option['value'], $this_option, false ) . '/>';
-						$output .= '<label for="radio-' . $option_name . '-' . $option['value'] . '">';
-						$output .= isset( $option['label'] ) ? $option['label'] : '';
-						$output .= '</label>';
-						$output .= 'radio' == $args['subtype'] ? '<br>' : '';
+					?>
+<fieldset>
+					<?php
+					if ( 'radio-image' == $args['subtype'] ) {
+						?>
+	<div class="flex-radio">
+						<?php
 					}
-					$output .= 'radio-image' == $args['subtype'] ? '</div>' : '';
-					$output .= '</fieldset>';
+					foreach ( $args['options'] as $option ) {
+						?>
+	<input type="radio" class="<?php echo esc_attr( $radioclass ); ?>" name="<?php echo esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . ']'; ?>" id="radio-<?php echo esc_attr( $option_name ) . '-' . esc_attr( $option['value'] ); ?>" value="<?php echo esc_attr( $option['value'] ); ?>" <?php echo checked( $option['value'], $this_option, false ); ?>/>
+						<?php
+						if ( isset( $option['label'] ) ) {
+							?>
+	<label for="radio-<?php echo esc_attr( $option_name ) . '-' . esc_attr( $option['value'] ); ?>"><?php echo wp_kses_post( $option['label'] ); ?></label>
+							<?php
+						}
+						if ( 'radio' == $args['subtype'] ) {
+							?>
+	<br>
+							<?php
+						}
+					}
+
+					if ( 'radio-image' == $args['subtype'] ) {
+						?>
+	</div>
+						<?php
+					}
+					?>
+</fieldset>
+					<?php
 				}
 				if ( 'colorpicker' == $args['subtype'] ) {
-					$output .= '<input type="text" class="color-picker" data-alpha-enabled="true" data-default-color="' . esc_attr( $default ) . '" name="' . esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . ']" value="' . esc_attr( $this_option ) . '"/>';
+					?>
+<input type="text" class="color-picker" data-alpha-enabled="true" data-default-color="<?php echo esc_attr( $default ); ?>" name="<?php echo esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . ']'; ?>" value="<?php echo esc_attr( $this_option ); ?>"/>
+					<?php
 				}
 				break;
 			case 'select':
-				$output .= '<select name="' . esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . ']">';
+				?>
+<select name="<?php echo esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . ']'; ?>">
+				<?php
 				foreach ( $args['options'] as $option ) {
-					$output .= '<option name="' . esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . '] id="' . esc_attr( $this_option ) . '" type="radio" value="' . esc_attr( $option['value'] ) . '"' . selected( $option['value'], $this_option, false ) . '/>' . esc_html( $option['label'] ) . '</option>';
+					?>
+	<option name="<?php echo esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . ']'; ?>" id="<?php echo esc_attr( $this_option ); ?>" type="radio" value="<?php echo esc_attr( $option['value'] ); ?>"<?php echo selected( $option['value'], $this_option, false ); ?>/><?php echo esc_html( $option['label'] ); ?></option>
+					<?php
 				}
-				$output .= '</select>';
-
+				?>
+</select>
+				<?php
 				break;
 			default:
 				// code...
 				break;
 		}
-		$output .= isset( $args['help'] ) ? '<p>' . esc_html( $args['help'] ) . '</p>' : '';
-		echo wp_kses_post( $output );
+		if ( isset( $args['help'] ) ) {
+			?>
+			<p><?php echo esc_html( $args['help'] ); ?></p>
+			<?php
+		}
 	}
 
 
 	/**
-	 * Register our section call back
+	 * Register section callback
 	 * (not much happening here)
 	 */
 	public function venobox_section_callback() {

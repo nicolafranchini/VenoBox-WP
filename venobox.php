@@ -15,7 +15,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-define( 'VENOBOX_PLUGIN_VERSION', '1.0.2' );
+define( 'VBOX_VENOBOX_PLUGIN_VERSION', '1.0.2' );
 if ( ! class_exists( 'VenoBox_Plugin', false ) ) {
 	require_once __DIR__ . '/include/class-venobox-plugin.php';
 }

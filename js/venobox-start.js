@@ -57,8 +57,6 @@ var VenoboxWP = (function(){
 	function initImages(boxlinks) {
 
 		var linklist = [];
-		var boxlinks = document.querySelectorAll('a[href]');
-
 		for (var i=0,l=boxlinks.length; i<l; i++) {
 			if (boxlinks[i].getAttribute('href')) {
 				if (isImage(boxlinks[i].getAttribute('href'))) {
@@ -147,6 +145,42 @@ var VenoboxWP = (function(){
 			if ( ! el.hasAttribute('data-gall')) {
 				el.dataset.gall = 'gallery';
 			}
+		});
+	}
+
+	// iFrames
+	function initIframes() {
+		const allBoxes = document.querySelectorAll('.venobox-iframe');
+		allBoxes.forEach(function(box){
+			box.dataset.vbtype = 'iframe';
+			if ( ! box.hasAttribute('data-gall')) {
+				box.dataset.gall = 'gallery';
+			}
+			framelink.classList.add('venobox');
+		});
+	}
+
+	// inline content
+	function initinline() {
+		const allBoxes = document.querySelectorAll('.venobox-inline');
+		allBoxes.forEach(function(box){
+			framelink.dataset.vbtype = 'inline';
+			if ( ! box.hasAttribute('data-gall')) {
+				box.dataset.gall = 'gallery';
+			}
+			box.classList.add('venobox');
+		});
+	}
+
+	// Ajax content
+	function initAjax() {
+		const allBoxes = document.querySelectorAll('.venobox-ajax');
+		allBoxes.forEach(function(box){
+			box.dataset.vbtype = 'ajax';
+			if ( ! box.hasAttribute('data-gall')) {
+				box.dataset.gall = 'gallery';
+			}
+			box.classList.add('venobox');
 		});
 	}
 
