@@ -1,4 +1,4 @@
-=== VenoBox 2 ===
+=== VenoBox 2 - Responsive Lightbox for images, videos, iFrames, inline contents, Ajax requests ===
 
 Author: Nicola Franchini
 contributors: nicolafranchini
@@ -9,18 +9,18 @@ Requires at least: 4.0
 Requires PHP: 5.3
 Plugin Name: VenoBox
 Plugin URI: https://wordpress.org/plugins/venobox/
-Description: Responsive lightbox modal windows for images, videos, inline contents, iFrames, Ajax requests. Touch swipe galleries.
+Description: Modal popup windows for images, videos, inline contents, iFrames, Ajax requests. Touch swipe and mouse dragging galleries. WooCommerce product galleries enabled.
 Tags: lightbox, modal, pop-up, gallery, zoom
 Author URI: https://veno.es/
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 Donate link: https://www.paypal.com/donate?hosted_button_id=2SUA56VZHYYMQ
 
-Responsive lightbox modal windows for images, videos, inline contents, iFrames, Ajax requests. Touch swipe galleries.
+Modal popup windows with touch swipe and mouse dragging galleries. WooCommerce product galleries enabled. No jQuery dependency.
 
 == Description ==
 
-VenoBox is a lightweight plugin that takes image and video showcasing to the next level. Built on the foundation of venobox.js, this plugin stands out by calculating the optimal display size for images, preserving their height, and ensuring a seamless viewing experience. Now, with even more options, VenoBox can also resizes the images to fit within the viewport height
+VenoBox is a lightweight plugin built on the foundation of venobox.js. It calculates the optimal display size for images preserving their height, and ensuring a seamless viewing experience. Now, with even more options, VenoBox can also resizes the images to fit within the viewport height. No jQuery dependency.
 
 ### Features
 
@@ -76,13 +76,13 @@ https://vimeo.com/terms
 
 1. Upload the plugin folder `venobox` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the Plugins menu in WordPress
-3. Adjust the plugin settings in  WP Admin > Dashboard > Settings > Venobox
+3. Adjust the plugin settings in  WP Admin > Dashboard > Settings > VenoBox
 
 
 == Usage ==
 
 Enable VenoBox for Images and/or Videos inside the plugin's settings section.
-Adjust style and gallery options
+Adjust style and gallery options in  WP Admin > Dashboard > Settings > VenoBox
 
 
 == Screenshots ==

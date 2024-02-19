@@ -4,6 +4,7 @@
  * Plugin URI: https://wordpress.org/plugins/venobox/
  * Description: Modal windows for images, videos, inline contents, iFrames, Ajax requests. Touch swipe galleries.
  * Author: Nicola Franchini
+ * Author URI: https://veno.es
  * Version: 1.0.3
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
