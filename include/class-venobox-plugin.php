@@ -123,6 +123,8 @@ class VenoBox_Plugin {
 			'share' => false,
 			'ratio' => '16x9',
 			'fit_view' => false,
+			'initial_scale' => 0.9,
+			'transition_speed' => 200,
 		);
 		$options = wp_parse_args( $options, $options_default );
 
@@ -173,6 +175,8 @@ class VenoBox_Plugin {
 				'searchfp' => (bool) $options['searchfp'],
 				'ratio' => $options['ratio'],
 				'fit_view' => $options['fit_view'],
+				'initial_scale' => $options['initial_scale'],
+				'transition_speed' => $options['transition_speed'],
 			);
 
 			// Access variables from venobox-init using venoboxVars.
@@ -500,6 +504,11 @@ class VenoBox_Plugin {
 			'type' => 'input',
 			'subtype' => 'number',
 			'default' => 300,
+			'attributes' => array(
+				'min' => 10,
+				'max' => 5000,
+				'step' => 10,
+			),
 		);
 		add_settings_field(
 			$prefix . 'nav_speed',
@@ -860,6 +869,50 @@ class VenoBox_Plugin {
 			$args
 		);
 
+		$args = array(
+			'name' => 'initial_scale',
+			'type' => 'input',
+			'subtype' => 'number',
+			'default' => 0.9,
+			'attributes' => array(
+				'min' => 0.1,
+				'max' => 1.5,
+				'step' => 0.1,
+			),
+			'help' => __( 'Initial items transform scale', 'venobox' ),
+		);
+
+		add_settings_field(
+			$prefix . 'initial_scale',
+			__( 'Initial scale', 'venobox' ),
+			array( $this, 'render_settings_field' ),
+			$page,
+			$section . '_style',
+			$args
+		);
+
+		$args = array(
+			'name' => 'transition_speed',
+			'type' => 'input',
+			'subtype' => 'number',
+			'default' => 200,
+			'attributes' => array(
+				'min' => 10,
+				'max' => 5000,
+				'step' => 10,
+			),
+			'help' => __( 'Transition speed for incoming items (ms)', 'venobox' ),
+		);
+
+		add_settings_field(
+			$prefix . 'transition_speed',
+			__( 'Transition speed', 'venobox' ),
+			array( $this, 'render_settings_field' ),
+			$page,
+			$section . '_style',
+			$args
+		);
+
 		add_settings_section(
 			$section . '_integration',
 			__( 'Integration', 'venobox' ),
@@ -951,7 +1004,17 @@ class VenoBox_Plugin {
 			case 'input':
 				if ( 'text' == $args['subtype'] || 'number' == $args['subtype'] ) {
 					?>
-					<input type="<?php echo esc_attr( $args['subtype'] ); ?>" class="regular-text" name="<?php echo esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . ']'; ?>" value="<?php echo esc_attr( $this_option ); ?>"/>
+					<input type="<?php echo esc_attr( $args['subtype'] ); ?>" class="regular-text" name="<?php echo esc_attr( $this->options_name ) . '[' . esc_attr( $option_name ) . ']'; ?>" value="<?php echo esc_attr( $this_option ); ?>" 
+						<?php
+						if ( isset( $args['attributes'] ) ) {
+
+							// print_r($args['attributes'] );
+							foreach ($args['attributes'] as $key => $attribute ) {
+								echo ' ' . esc_attr( $key ) . '="' . esc_attr( $attribute ) . '"';
+							}
+						}
+						?>
+						/>
 					<?php
 				}
 				if ( 'checkbox' == $args['subtype'] ) {

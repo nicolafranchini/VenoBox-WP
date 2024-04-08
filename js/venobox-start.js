@@ -27,13 +27,13 @@ var VenoboxWP = (function(){
 	}
 
 	// Detects the end of an ajax request being made for Search & Filter Pro
-	if(VENOBOX.searchfp) {
+	if (VENOBOX.searchfp) {
 		document.addEventListener('sf:ajaxfinish', enableVenoBox);
 		document.addEventListener('.searchandfilter', enableVenoBox);
 	}
 
 	// Detects the end of an ajax request being made for Facet WP
-	if(VENOBOX.facetwp) {
+	if (VENOBOX.facetwp) {
 		document.addEventListener('facetwp-loaded', enableVenoBox);
 	}
 
@@ -217,7 +217,9 @@ var VenoboxWP = (function(){
 			spinColor: VENOBOX.nav_elements,
 			share: VENOBOX.share,
 			ratio: VENOBOX.ratio,
-			fitView: fit_view
+			fitView: fit_view,
+			initialScale: VENOBOX.initial_scale,
+			transitionSpeed: VENOBOX.transition_speed
 		});
 	}
 

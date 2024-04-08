@@ -2,9 +2,9 @@
 
 Author: Nicola Franchini
 contributors: nicolafranchini
-Version: 1.0.3
-Stable tag: 1.0.3
-Tested up to: 6.4
+Version: 1.0.4
+Stable tag: 1.0.4
+Tested up to: 6.5
 Requires at least: 4.0
 Requires PHP: 5.3
 Plugin Name: VenoBox
@@ -112,6 +112,11 @@ Add the class `venobox-inline` to your links
 Yes, with the global option `Fit view`, or to individual links or group of links adding the class `venobox-fitview` to one of their containers
 
 == Changelog ==
+
+= 1.0.4 =
+* Update: venobox.js to 2.1.7
+* Update: New opttion Style > Initial scale
+* Update: New opttion Style > Transition speed
 
 = 1.0.3 =
 * New: initialize iframes, inline content and ajax calls with `venobox-`classes
