@@ -1008,8 +1008,8 @@ class VenoBox_Plugin {
 						<?php
 						if ( isset( $args['attributes'] ) ) {
 
-							// print_r($args['attributes'] );
-							foreach ($args['attributes'] as $key => $attribute ) {
+							// print_r($args['attributes'] ); // debug.
+							foreach ( $args['attributes'] as $key => $attribute ) {
 								echo ' ' . esc_attr( $key ) . '="' . esc_attr( $attribute ) . '"';
 							}
 						}

@@ -2,8 +2,8 @@
 
 Author: Nicola Franchini
 contributors: nicolafranchini
-Version: 1.0.4
-Stable tag: 1.0.4
+Version: 1.0.5
+Stable tag: 1.0.5
 Tested up to: 6.5
 Requires at least: 4.0
 Requires PHP: 5.3
@@ -112,6 +112,9 @@ Add the class `venobox-inline` to your links
 Yes, with the global option `Fit view`, or to individual links or group of links adding the class `venobox-fitview` to one of their containers
 
 == Changelog ==
+
+= 1.0.5 =
+* Update: venobox.js to 2.1.8
 
 = 1.0.4 =
 * Update: venobox.js to 2.1.7
