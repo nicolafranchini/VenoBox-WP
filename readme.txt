@@ -2,9 +2,9 @@
 
 Author: Nicola Franchini
 contributors: nicolafranchini
-Version: 1.0.5
-Stable tag: 1.0.5
-Tested up to: 6.5
+Version: 1.0.7
+Stable tag: 1.0.7
+Tested up to: 6.7
 Requires at least: 4.0
 Requires PHP: 5.3
 Plugin Name: VenoBox
@@ -99,6 +99,14 @@ Adjust style and gallery options in  WP Admin > Dashboard > Settings > VenoBox
 
 == Frequently Asked Questions == 
 
+= How to reinitialize the plugin for dynamic links added to an already loaded page? =
+
+Use this snippet once your new links have been added:
+
+    if (typeof window.VenoBoxPlugin === "function") {
+        window.VenoBoxPlugin();
+    }
+
 = How to open remote content inside iFrames? =
 Add the class `venobox-iframe` to your links
 
@@ -112,6 +120,12 @@ Add the class `venobox-inline` to your links
 Yes, with the global option `Fit view`, or to individual links or group of links adding the class `venobox-fitview` to one of their containers
 
 == Changelog ==
+
+= 1.0.7 =
+* Update: Public window.VenoBoxPlugin() to re-initialize
+
+= 1.0.6 =
+* Update: test compatibility with WP 6.7
 
 = 1.0.5 =
 * Update: venobox.js to 2.1.8
