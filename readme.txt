@@ -128,7 +128,7 @@ Yes, with the global option `Fit view`, or to individual links or group of links
 
 == Changelog ==
 
-= 1.0.7 =
+= 1.0.8 =
 * Update: Group links to create custom galleries
 
 = 1.0.7 =
