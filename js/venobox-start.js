@@ -116,7 +116,16 @@
 				allLinks.forEach(function(link, index){
 					link.dataset.gall = 'venoset-'+i;
 				});
-			})
+			});
+
+			// Set custom galleries to have unique data-gall sets
+			const vb_galleries = document.querySelectorAll('.venobox-gall');
+			vb_galleries.forEach(function(gallery, i){
+				const allLinks = gallery.querySelectorAll('a');
+				allLinks.forEach(function(link, index){
+					link.dataset.gall = 'vb-venoset-'+i;
+				});
+			});
 
 			// Jetpacks caption as title
 			if (VENOBOX.title_select == 3) {
@@ -254,16 +263,12 @@
 	        init
 	    };
 	})();
-		
-	// if ( ! VENOBOX.disabled ) {
-	// 	VenoboxWP.init();
-	// }
 
-    function VenoBoxPlugin(){
-        return VenoboxWP.init();
-    }
+   function VenoBoxPlugin(){
+      return VenoboxWP.init();
+   }
 
-    return VenoBoxPlugin;
+   return VenoBoxPlugin;
 })));
 
 VenoBoxPlugin();

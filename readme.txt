@@ -2,8 +2,8 @@
 
 Author: Nicola Franchini
 contributors: nicolafranchini
-Version: 1.0.7
-Stable tag: 1.0.7
+Version: 1.0.8
+Stable tag: 1.0.8
 Tested up to: 6.7
 Requires at least: 4.0
 Requires PHP: 5.3
@@ -99,6 +99,13 @@ Adjust style and gallery options in  WP Admin > Dashboard > Settings > VenoBox
 
 == Frequently Asked Questions == 
 
+= How to group links for gallery navigation? =
+
+Every WP image gallery will be treated as individual gallery;
+To group specific links add the following class to any parent element of the links
+
+    venobox-gall
+
 = How to reinitialize the plugin for dynamic links added to an already loaded page? =
 
 Use this snippet once your new links have been added:
@@ -120,6 +127,9 @@ Add the class `venobox-inline` to your links
 Yes, with the global option `Fit view`, or to individual links or group of links adding the class `venobox-fitview` to one of their containers
 
 == Changelog ==
+
+= 1.0.7 =
+* Update: Group links to create custom galleries
 
 = 1.0.7 =
 * Update: Public window.VenoBoxPlugin() to re-initialize
