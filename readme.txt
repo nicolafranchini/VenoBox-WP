@@ -1,26 +1,36 @@
-=== VenoBox 2 - Responsive Lightbox for images, videos, iFrames, inline contents, Ajax requests ===
+=== VenoBox - Lightweight & Responsive Lightbox Plugin ===
 
 Author: Nicola Franchini
-contributors: nicolafranchini
-Version: 1.0.8
-Stable tag: 1.0.8
-Tested up to: 6.7
+Contributors: nicolafranchini
+Version: 1.0.9
+Stable tag: 1.0.9
+Tested up to: 6.8
 Requires at least: 4.0
 Requires PHP: 5.3
 Plugin Name: VenoBox
 Plugin URI: https://wordpress.org/plugins/venobox/
-Description: Modal popup windows for images, videos, inline contents, iFrames, Ajax requests. Touch swipe and mouse dragging galleries. WooCommerce product galleries enabled.
-Tags: lightbox, modal, pop-up, gallery, zoom
+Description: The modern, lightweight lightbox for images, videos, and galleries. No jQuery dependency. Features touch-swipe navigation & WooCommerce product gallery support.
+Tags: lightbox, modal, gallery, popup, woocommerce
 Author URI: https://veno.es/
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 Donate link: https://www.paypal.com/donate?hosted_button_id=2SUA56VZHYYMQ
 
-Modal popup windows with touch swipe and mouse dragging galleries. WooCommerce product galleries enabled. No jQuery dependency.
+A fast, responsive, and flexible lightbox for images, videos, and galleries. Zero jQuery dependency.
 
 == Description ==
 
-VenoBox is a lightweight plugin built on the foundation of venobox.js. It calculates the optimal display size for images preserving their height, and ensuring a seamless viewing experience. Now, with even more options, VenoBox can also resizes the images to fit within the viewport height. No jQuery dependency.
+Tired of slow, clunky lightboxes that rely on jQuery? VenoBox is the modern, lightweight, and performance-focused lightbox your WordPress site deserves.
+
+Built from the ground up with pure JavaScript, VenoBox is incredibly fast and avoids conflicts with other plugins. It intelligently calculates the best display size for your images, offers beautiful touch-swipe navigation for galleries, and seamlessly integrates with WooCommerce product galleries.
+
+### Why Choose VenoBox?
+
+*   ⚡ **Performance First (No jQuery):** Incredibly lightweight and fast-loading. It won't slow down your site.
+*   📱 **Truly Responsive:** Smart image resizing and touch-swipe navigation provide a flawless experience on any device.
+*   🛒 **WooCommerce Ready:** Automatically enhances your WooCommerce product galleries with a beautiful and user-friendly lightbox.
+*   🎬 **Multimedia Support:** Works perfectly with images, videos (YouTube, Vimeo, HTML5), iFrames, and inline content.
+*   🎨 **Highly Customizable:** Easily change colors, styles, preloaders, and aspect ratios to match your brand's design.
 
 ### Features
 
@@ -54,7 +64,6 @@ Tailor the appearance of VenoBox to match your brand with customizable colors an
 * **WooCommerce Compatibility:** 
 VenoBox seamlessly integrates with WooCommerce product galleries, offering a streamlined solution for displaying your products with style and flair.
 
-
 ### 3rd party services
 
 **YouTube** 
@@ -76,25 +85,21 @@ https://vimeo.com/terms
 
 1. Upload the plugin folder `venobox` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the Plugins menu in WordPress
-3. Adjust the plugin settings in  WP Admin > Dashboard > Settings > VenoBox
+3. Adjust the plugin settings in WP Admin > Dashboard > Settings > VenoBox
 
 
 == Usage ==
 
 Enable VenoBox for Images and/or Videos inside the plugin's settings section.
-Adjust style and gallery options in  WP Admin > Dashboard > Settings > VenoBox
+Adjust style and gallery options in WP Admin > Dashboard > Settings > VenoBox
 
 
 == Screenshots ==
 
 1. VenoBox interface
-
 2. Plugin Options
-
 3. UI Style
-
 4. Integrations
-
 5. Disable VenoBox on specific post or page
 
 == Frequently Asked Questions == 
@@ -128,6 +133,10 @@ Yes, with the global option `Fit view`, or to individual links or group of links
 
 == Changelog ==
 
+= 1.0.9 =
+* Update: Tested up to WP 6.8
+* Update: Minor improvements
+
 = 1.0.8 =
 * Update: Group links to create custom galleries
 
@@ -142,8 +151,8 @@ Yes, with the global option `Fit view`, or to individual links or group of links
 
 = 1.0.4 =
 * Update: venobox.js to 2.1.7
-* Update: New opttion Style > Initial scale
-* Update: New opttion Style > Transition speed
+* Update: New option Style > Initial scale
+* Update: New option Style > Transition speed
 
 = 1.0.3 =
 * New: initialize iframes, inline content and ajax calls with `venobox-`classes
