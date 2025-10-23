@@ -1286,9 +1286,7 @@ class VenoBox_Plugin {
 			true
 		);
 
-		// Create a unique, JS-friendly object name from the slug.
-		$camel_case_slug = lcfirst( str_replace( ' ', '', ucwords( str_replace( '-', ' ', $this->slug ) ) ) );
-		$object_name     = $camel_case_slug . 'ReviewNoticeData';
+		$object_name = 'venoboxReviewNoticeData';
 
 		wp_localize_script(
 			$handle,

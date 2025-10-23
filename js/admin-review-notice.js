@@ -4,7 +4,7 @@
  */
 document.addEventListener('DOMContentLoaded', function () {
     // Use the UNIQUE object name for this specific plugin.
-    const noticeData = window.venomapsReviewNoticeData;
+    const noticeData = window.venoboxReviewNoticeData;
 
     // Check if the localized data object exists.
     if (typeof noticeData === 'undefined') {
