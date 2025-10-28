@@ -1,6 +1,6 @@
 <?php
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+    exit;
 }
 delete_option( 'venobox_options' );
 delete_option( 'venobox_activation_date' );

@@ -1181,14 +1181,10 @@ class VenoBox_Plugin {
 		}
 	}
 
-
 	/**
-	 * Rewrite permalinks on activation, after cpt registration
+	 * Check / Set activation date
 	 */
 	public function activate_plugin() {
-		$this->register_cpt();
-		flush_rewrite_rules();
-
 		// Set activation date for new installations.
 		$option_name = $this->slug . '_activation_date';
 		if ( false === get_option( $option_name ) ) {
