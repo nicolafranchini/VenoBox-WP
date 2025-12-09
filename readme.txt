@@ -2,9 +2,9 @@
 
 Author: Nicola Franchini
 Contributors: nicolafranchini
-Version: 1.1.1
-Stable tag: 1.1.1
-Tested up to: 6.8
+Version: 1.1.2
+Stable tag: 1.1.2
+Tested up to: 6.9
 Requires at least: 4.0
 Requires PHP: 5.3
 Plugin Name: VenoBox
@@ -70,7 +70,7 @@ VenoBox seamlessly integrates with WooCommerce product galleries, offering a str
 If you enable VenoBox for videos and link YouTube videos, the plugin embeds the videos inside of your website with the following url:
 https://www.youtube-nocookie.com/embed/
 
-Terms of servce:
+Terms of service:
 https://developers.google.com/youtube/terms/api-services-terms-of-service
 
 **Vimeo** 
@@ -132,6 +132,9 @@ Add the class `venobox-inline` to your links
 Yes, with the global option `Fit view`, or to individual links or group of links adding the class `venobox-fitview` to one of their containers
 
 == Changelog ==
+
+= 1.1.2 =
+* Update: tested up to WP 6.9
 
 = 1.1.1 =
 * Fix: Error on activation
