@@ -86,9 +86,29 @@ class VenoBox_Plugin {
 		add_action( 'save_post', array( $this, 'save_meta' ) );
 
 		// Review notice.
-		add_action( 'admin_init', array( $this, 'check_installation_date' ) );
-		add_action( 'admin_notices', array( $this, 'display_review_notice' ) );
-		add_action( 'wp_ajax_' . $this->slug . '_dismiss_review_notice', array( $this, 'dismiss_review_notice' ) );
+		add_filter( 'admin_footer_text', array( $this, 'custom_admin_footer_text' ) );
+	}
+
+	/**
+	 * Add footer notice
+	 *
+	 * @param str $text Footer text.
+	 *
+	 * @return str notice text
+	 */
+	public function custom_admin_footer_text( $text ) {
+		// Ottieni l'ID della schermata corrente.
+		$screen = get_current_screen();
+
+		if ( 'settings_page_venobox-options' === $screen->id ) {
+			$url = 'https://wordpress.org/support/plugin/venobox/reviews/?rate=5#new-post'; // Inserisci lo slug corretto del plugin.
+			$text = sprintf(
+				// Translators: plugin rating page.
+				__( 'If you like <strong>VenoBox</strong> please leave us a <a href="%s" target="_blank">★★★★★</a> rating. A huge thanks in advance!', 'venobox' ),
+				$url
+			);
+		}
+		return $text;
 	}
 
 	/**
@@ -1190,123 +1210,6 @@ class VenoBox_Plugin {
 		if ( false === get_option( $option_name ) ) {
 			add_option( $option_name, time() );
 		}
-	}
-
-	/**
-	 * Check and set the installation date if it doesn't exist.
-	 * This ensures that the notice timer starts for existing users who update the plugin.
-	 *
-	 * @return void
-	 */
-	public function check_installation_date() {
-		$option_name = $this->slug . '_activation_date';
-		if ( false === get_option( $option_name ) ) {
-			add_option( $option_name, time() );
-		}
-	}
-
-	/**
-	 * Display the review notice in the admin dashboard.
-	 *
-	 * @return void
-	 */
-	public function display_review_notice() {
-		// Only show notice to users who can manage options.
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-
-		$dismissed_option = $this->slug . '_review_notice_dismissed';
-		$activation_option = $this->slug . '_activation_date';
-
-		// Check if the notice has been dismissed.
-		if ( get_option( $dismissed_option ) ) {
-			return;
-		}
-
-		$activation_date = get_option( $activation_option );
-
-		// Show notice only after 14 days of usage.
-		if ( ! $activation_date || ( time() - $activation_date < 14 * DAY_IN_SECONDS ) ) {
-			return;
-		}
-
-		// Enqueue the script for the notice.
-		$this->enqueue_review_notice_script();
-
-		// Dynamic CSS IDs and classes.
-		$notice_id     = $this->slug . '-review-notice';
-		$dismiss_class = $this->slug . '-dismiss-notice';
-		$review_url    = 'https://wordpress.org/support/plugin/' . $this->slug . '/reviews/?filter=5';
-		?>
-		<div id="<?php echo esc_attr( $notice_id ); ?>" class="notice notice-info is-dismissible">
-			<p>
-				<?php
-				printf(
-					/* translators: %s is the plugin name */
-					esc_html__( 'Enjoying %s? Please consider leaving a 5-star review ⭐⭐⭐⭐⭐. It helps us grow and support the plugin!', 'venomaps' ),
-					'<strong>' . esc_html( $this->plugin_name ) . '</strong>'
-				);
-				?>
-			</p>
-			<p>
-				<a href="<?php echo esc_url( $review_url ); ?>" class="button button-primary" target="_blank">
-					<?php esc_html_e( 'Sure, I’d love to!', 'venomaps' ); ?>
-				</a>
-				<a href="#" class="button button-secondary <?php echo esc_attr( $dismiss_class ); ?>">
-					<?php esc_html_e( 'Maybe Later', 'venomaps' ); ?>
-				</a>
-				<a href="#" class="button button-secondary <?php echo esc_attr( $dismiss_class ); ?>">
-					<?php esc_html_e( 'I Already Rated It', 'venomaps' ); ?>
-				</a>
-			</p>
-		</div>
-		<?php
-	}
-
-	/**
-	 * Enqueue the JavaScript for the review notice dismissal.
-	 *
-	 * @return void
-	 */
-	private function enqueue_review_notice_script() {
-		// Dynamic script handle.
-		$handle     = $this->slug . '-review-notice';
-		$plugin_url = plugin_dir_url( __DIR__ );
-
-		wp_enqueue_script(
-			$handle,
-			$plugin_url . 'js/admin-review-notice.js', // Adjust path if necessary.
-			array(),
-			VBOX_VENOBOX_PLUGIN_VERSION,
-			true
-		);
-
-		$object_name = 'venoboxReviewNoticeData';
-
-		wp_localize_script(
-			$handle,
-			$object_name, // Use the unique object name here.
-			array(
-				'ajax_url'    => admin_url( 'admin-ajax.php' ),
-				'nonce'       => wp_create_nonce( $this->slug . '_dismiss_review_notice_nonce' ),
-				'action'      => $this->slug . '_dismiss_review_notice',
-				'notice_id'   => $this->slug . '-review-notice',
-				'dismiss_class' => $this->slug . '-dismiss-notice',
-			)
-		);
-	}
-
-	/**
-	 * Handles the AJAX request to dismiss the review notice.
-	 *
-	 * @return void
-	 */
-	public function dismiss_review_notice() {
-		// Dynamic nonce check and option update.
-		check_ajax_referer( $this->slug . '_dismiss_review_notice_nonce', 'nonce' );
-		update_option( $this->slug . '_review_notice_dismissed', true );
-		wp_send_json_success();
 	}
 }
 
