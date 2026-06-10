@@ -1,0 +1,6 @@
+# Cartelle da escludere
+node_modules/
+
+# File di sistema
+.DS_Store
+Thumbs.db

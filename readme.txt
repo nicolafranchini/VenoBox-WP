@@ -2,9 +2,9 @@
 
 Author: Nicola Franchini
 Contributors: nicolafranchini
-Version: 1.1.3
-Stable tag: 1.1.3
-Tested up to: 6.9
+Version: 1.1.4
+Stable tag: 1.1.4
+Tested up to: 7.0
 Requires at least: 4.0
 Requires PHP: 5.3
 Plugin Name: VenoBox
@@ -80,19 +80,21 @@ https://player.vimeo.com/video/
 Terms of servce:
 https://vimeo.com/terms
 
+### More from Nicola Franchini
+
+If you find VenoBox useful, you might also like my other tools for WordPress:
+
+* ⚲ **[VenoMaps](https://veno.es/venomaps/):** The ultimate **Google Maps alternative**. Create fast, privacy-friendly maps using **OpenStreetMap**. No API keys required, no hidden costs, and zero configuration headaches.
+* ⛶ **[QRcdr](https://qrcdr.pro/):** A professional QR Code generator that grows with your needs. While the free version handles standard codes, **QRcdr Pro** allows you to turn your WordPress site into a complete **QR Code SaaS platform** with dynamic codes, scan tracking, and subscription plans.
+
+**Discover all my solutions at [veno.es](https://veno.es/shop/).**
+High-quality scripts, premium add-ons, and professional tools designed for performance-focused developers.
 
 == Installation ==
 
 1. Upload the plugin folder `venobox` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the Plugins menu in WordPress
 3. Adjust the plugin settings in WP Admin > Dashboard > Settings > VenoBox
-
-
-== Usage ==
-
-Enable VenoBox for Images and/or Videos inside the plugin's settings section.
-Adjust style and gallery options in WP Admin > Dashboard > Settings > VenoBox
-
 
 == Screenshots ==
 
@@ -133,8 +135,16 @@ Yes, with the global option `Fit view`, or to individual links or group of links
 
 == Changelog ==
 
+= 1.1.4 =
+* Update: Support for the new Woocommerce block Product Gallery
+* Update: Minified bundle, performance improved
+* Update: tested up to WP 7.0
+
+= 1.1.3 =
+* Update: Discrete plugin review notice
+
 = 1.1.2 =
-* Update: tested up to WP 6.9
+* Update: Tested up to WP 6.9
 
 = 1.1.1 =
 * Fix: Error on activation
@@ -178,11 +188,6 @@ Yes, with the global option `Fit view`, or to individual links or group of links
 
 = 1.0.1 =
 * Update: VenoBox.js to 2.0.9
-
-= 1.0.0 =
-* First release
-
- == Upgrade Notice ==
 
 = 1.0.0 =
 * First release

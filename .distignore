@@ -1,0 +1,15 @@
+# Cartelle da escludere
+node_modules/
+.git/
+
+# File da escludere
+package.json
+package-lock.json
+rollup.config.js
+.distignore
+.gitignore
+
+# System files (macOS, Windows)
+.DS_Store
+Thumbs.db
+__MACOSX/

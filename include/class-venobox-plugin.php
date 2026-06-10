@@ -170,12 +170,9 @@ class VenoBox_Plugin {
 
 		$debug = ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) ? '' : '.min';
 
-		// $enabled = ( ( $options['all_images'] || $options['all_videos'] ) && ! strlen( $disable_venobox ) ) || ( ( ! $options['all_images'] && ! $options['all_videos'] ) && strlen( $disable_venobox ) );
-		// if ( $enabled ) {
 		if ( ! strlen( $disable_venobox ) ) {
-			wp_enqueue_style( 'venobox-wp', plugin_dir_url( __DIR__ ) . 'assets/venobox/dist/venobox' . $debug . '.css', array(), $this->venobox_js_version, 'all' );
-			wp_enqueue_script( 'venobox-wp', plugin_dir_url( __DIR__ ) . 'assets/venobox/dist/venobox' . $debug . '.js', array(), $this->venobox_js_version, true );
-			wp_register_script( 'venobox-start', plugin_dir_url( __DIR__ ) . 'js/venobox-start.js', array( 'venobox-wp' ), VBOX_VENOBOX_PLUGIN_VERSION, true );
+			wp_enqueue_style( 'venobox-wp-bundle', plugin_dir_url( __DIR__ ) . 'css/venobox-wp-bundle' . $debug . '.css', array(), VBOX_VENOBOX_PLUGIN_VERSION, 'all' );
+			wp_enqueue_script( 'venobox-wp-bundle', plugin_dir_url( __DIR__ ) . 'js/venobox-wp-bundle' . $debug . '.js', array(), VBOX_VENOBOX_PLUGIN_VERSION, true );
 
 			// Disable jQuery MagnificPopUp used on BeaverBuilder.
 			if ( $options['bb_lightbox'] ) {
@@ -220,8 +217,7 @@ class VenoBox_Plugin {
 			);
 
 			// Access variables from venobox-init using venoboxVars.
-			wp_localize_script( 'venobox-start', 'VENOBOX', $data );
-			wp_enqueue_script( 'venobox-start' );
+			wp_localize_script( 'venobox-wp-bundle', 'VENOBOX', $data );
 		}
 	}
 
@@ -970,6 +966,7 @@ class VenoBox_Plugin {
 			'subtype' => 'checkbox',
 			'label' => __( 'Support for WooCommerce', 'venobox' ),
 			'default' => '',
+			'help' => __( 'If you use this option remember to disable "Open pop-up when clicked" from the Woo Product Gallery Block ', 'venobox' ),
 		);
 		add_settings_field(
 			$prefix . 'woocommerce',
@@ -1136,7 +1133,6 @@ class VenoBox_Plugin {
 		}
 	}
 
-
 	/**
 	 * Register section callback
 	 * (not much happening here)
@@ -1161,8 +1157,6 @@ class VenoBox_Plugin {
 
 	/**
 	 * Create VenoBox Meta
-	 *
-	 * @link https://gist.github.com/emilysnothere/943ea6274dc160cec271
 	 */
 	public function create_meta() {
 		$post_id = get_the_ID();
