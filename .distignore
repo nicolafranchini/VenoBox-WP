@@ -1,6 +1,7 @@
 # Cartelle da escludere
-node_modules/
 .git/
+node_modules/
+src/
 
 # File da escludere
 package.json

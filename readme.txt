@@ -85,7 +85,7 @@ https://vimeo.com/terms
 If you find VenoBox useful, you might also like my other tools for WordPress:
 
 * ⚲ **[VenoMaps](https://veno.es/venomaps/):** The ultimate **Google Maps alternative**. Create fast, privacy-friendly maps using **OpenStreetMap**. No API keys required, no hidden costs, and zero configuration headaches.
-* ⛶ **[QRcdr](https://qrcdr.pro/):** A professional QR Code generator that grows with your needs. While the free version handles standard codes, **QRcdr Pro** allows you to turn your WordPress site into a complete **QR Code SaaS platform** with dynamic codes, scan tracking, and subscription plans.
+* ⛶ **[QRcdr](https://qrcdr.pro/):** From static QR codes to a full White-Label SaaS. Launch your own platform, sell subscriptions, and keep 100% of the revenue.
 
 **Discover all my solutions at [veno.es](https://veno.es/shop/).**
 High-quality scripts, premium add-ons, and professional tools designed for performance-focused developers.
