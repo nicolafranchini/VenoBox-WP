@@ -1,5 +1,5 @@
 {
-  "name": "magicards",
+  "name": "venobox_build",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -19,6 +19,6 @@
     "terser": "^5.19.0"
   },
   "dependencies": {
-    "venobox": "^2.1.8"
+    "venobox": "^2.2.0"
   }
 }

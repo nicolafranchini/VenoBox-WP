@@ -2,8 +2,8 @@
 
 Author: Nicola Franchini
 Contributors: nicolafranchini
-Version: 1.1.4
-Stable tag: 1.1.4
+Version: 1.1.5
+Stable tag: 1.1.5
 Tested up to: 7.0
 Requires at least: 4.0
 Requires PHP: 5.3
@@ -84,8 +84,8 @@ https://vimeo.com/terms
 
 If you find VenoBox useful, you might also like my other tools for WordPress:
 
-* ⚲ **[VenoMaps](https://veno.es/venomaps/):** The ultimate **Google Maps alternative**. Create fast, privacy-friendly maps using **OpenStreetMap**. No API keys required, no hidden costs, and zero configuration headaches.
-* ⛶ **[QRcdr](https://qrcdr.pro/):** From static QR codes to a full White-Label SaaS. Launch your own platform, sell subscriptions, and keep 100% of the revenue.
+* 💎 **[QRcdr](https://qrcdr.pro/):** From static codes to a full **Dynamic QR SaaS**. Sell plans, track scans and monetize.
+* 📍 **[VenoMaps](https://veno.es/venomaps/):** The ultimate **Google Maps alternative**. Create fast, privacy-friendly maps using **OpenStreetMap**. No API keys required, no hidden costs, and zero configuration headaches.
 
 **Discover all my solutions at [veno.es](https://veno.es/shop/).**
 High-quality scripts, premium add-ons, and professional tools designed for performance-focused developers.
@@ -134,6 +134,9 @@ Add the class `venobox-inline` to your links
 Yes, with the global option `Fit view`, or to individual links or group of links adding the class `venobox-fitview` to one of their containers
 
 == Changelog ==
+
+= 1.1.5 =
+* Update: VenoBox JS 2.2.0: WCAG compliance - Hidden scrollbar
 
 = 1.1.4 =
 * Update: Support for the new Woocommerce block Product Gallery
