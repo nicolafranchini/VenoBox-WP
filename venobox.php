@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: VenoBox
- * Plugin URI: https://wordpress.org/plugins/venobox/
+ * Plugin URI: https://veno.es/venobox/
  * Description: The modern, lightweight lightbox for images, videos, and galleries. No jQuery dependency. Features touch-swipe navigation & WooCommerce product gallery support.
  * Author: Nicola Franchini
  * Author URI: https://veno.es
