@@ -8,7 +8,7 @@ Tested up to: 7.0
 Requires at least: 4.0
 Requires PHP: 5.3
 Plugin Name: VenoBox
-Plugin URI: https://wordpress.org/plugins/venobox/
+Plugin URI: https://veno.es/venobox/
 Description: The modern, lightweight lightbox for images, videos, and galleries. No jQuery dependency. Features touch-swipe navigation & WooCommerce product gallery support.
 Tags: lightbox, modal, gallery, popup, woocommerce
 Author URI: https://veno.es/
