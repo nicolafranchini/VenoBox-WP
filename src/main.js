@@ -384,7 +384,7 @@ const VenoboxWP = (function() {
 
     function init(){
         if ( ! VENOBOX.disabled ) {
-            const allLinks = document.querySelectorAll('a[href]');
+            const allLinks = document.querySelectorAll('a[href]:not(.no-venobox)');
             enableVenoBox(allLinks);
             initialLoadFinished = true;
         }

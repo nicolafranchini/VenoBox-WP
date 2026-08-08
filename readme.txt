@@ -2,8 +2,8 @@
 
 Author: Nicola Franchini
 Contributors: nicolafranchini
-Version: 1.1.5
-Stable tag: 1.1.5
+Version: 1.1.6
+Stable tag: 1.1.6
 Tested up to: 7.0
 Requires at least: 4.0
 Requires PHP: 5.3
@@ -134,6 +134,9 @@ Add the class `venobox-inline` to your links
 Yes, with the global option `Fit view`, or to individual links or group of links adding the class `venobox-fitview` to one of their containers
 
 == Changelog ==
+
+= 1.1.6 =
+* Update: New helper class .no-venobox to disable specific links.
 
 = 1.1.5 =
 * Update: VenoBox JS 2.2.0: WCAG compliance - Hidden scrollbar
