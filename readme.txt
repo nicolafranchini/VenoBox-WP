@@ -2,9 +2,9 @@
 
 Author: Nicola Franchini
 Contributors: nicolafranchini
-Version: 1.1.6
-Stable tag: 1.1.6
-Tested up to: 7.0
+Version: 1.1.7
+Stable tag: 1.1.7
+Tested up to: 7.1
 Requires at least: 4.0
 Requires PHP: 5.3
 Plugin Name: VenoBox
@@ -134,6 +134,9 @@ Add the class `venobox-inline` to your links
 Yes, with the global option `Fit view`, or to individual links or group of links adding the class `venobox-fitview` to one of their containers
 
 == Changelog ==
+
+= 1.1.7 =
+* Update: tested up to WordPress 7.1
 
 = 1.1.6 =
 * Update: New helper class .no-venobox to disable specific links.
